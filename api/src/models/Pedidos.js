@@ -4,13 +4,13 @@ const { DataTypes, STRING } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define("pedidos", {
-    name: {
+    nombre: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     cantidad: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      // AllowNull: false,
     },
     id: {
       type: DataTypes.UUID,
@@ -21,8 +21,8 @@ module.exports = (sequelize) => {
     burgers: {
       type: DataTypes.ARRAY(STRING),
     },
-    price: {
-      type: DataTypes.INTEGER,
+    entrega: {
+      type: DataTypes.STRING,
     },
   });
 };
