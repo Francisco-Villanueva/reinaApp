@@ -2,6 +2,7 @@ import { actionTypes } from "../actions";
 const initialState = {
   count: 0,
   menuLoaded: [],
+  pedidosLoaded: [],
   statePrueba: "pedazoooooooooo",
   load: false,
 };
@@ -13,10 +14,10 @@ const rootReducer = (state = initialState, action) => {
         menuLoaded: action.payload,
       };
 
-    case actionTypes.SWITCH_BOOL:
+    case actionTypes.GET_PEDIDOS:
       return {
         ...state,
-        load: action.payload,
+        pedidosLoaded: action.payload,
       };
 
     default:

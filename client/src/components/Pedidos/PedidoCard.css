@@ -1,0 +1,9 @@
+.container ol {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  flex-wrap: wrap;
+  align-items: center;
+}
+.container ul {
+  border: 1px solid #cecece;
+}

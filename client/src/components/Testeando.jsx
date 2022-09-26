@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import * as actionCreators from "../actions";
 import { bindActionCreators } from "redux";
 import { useEffect } from "react";
-import { Menu } from "./Menu";
+import { Card } from "./Card/Card";
+import "./Testeando.css";
 
 export function Testeando(props) {
   useEffect(() => {
@@ -12,11 +13,26 @@ export function Testeando(props) {
   }, []);
   return (
     <div>
-      <button onClick={() => props.switchh()}>Cargar menu</button>
-
-      {props.p.map((e) => (
-        <p key={e.id}>{e.name}</p>
-      ))}
+      <h1>MENU</h1>
+      <div>
+        <label htmlFor="Nombre">Nombre</label>
+        <input type="text" />
+      </div>
+      <div>
+        <label htmlFor="Nombre">Direccion</label>
+        <input type="text" />
+      </div>
+      <div className="menuContainer">
+        {props.p.map((burg) => (
+          <Card
+            name={burg.name}
+            price={burg.price}
+            description={burg.description}
+            key={burg.id}
+            types={burg.dietType}
+          />
+        ))}
+      </div>
     </div>
   );
 }
