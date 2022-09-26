@@ -1,8 +1,8 @@
-const { data } = require("../data");
+const { data, data2 } = require("../data");
 const db = require("../db");
 const burgerList = (req, res) => {
   try {
-    res.status(200).json(data.burgers);
+    res.status(200).send(data2);
   } catch (error) {
     res.status(400).json(error);
   }
