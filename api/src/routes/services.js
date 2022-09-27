@@ -1,5 +1,5 @@
 const { data, data2 } = require("../data");
-const db = require("../db");
+const { Pedidos, Burger } = require("../db");
 const burgerList = (req, res) => {
   try {
     res.status(200).send(data2);
@@ -40,27 +40,33 @@ const crearPedido = async (req, res) => {
     }
 
     const cantidad = burgers.length;
-    const newPedido = await db.query(
-      "INSERT INTO pedidos( nombre, burgers, entrega, cantidad, direccion) VALUES($1,$2,$3,$4, $5) RETURNING *",
-      [nombre, burgers, entrega, cantidad, direccion]
-    );
-
-    res.status(200).send(newPedido.rows[0]);
+    const newPedido = await Pedidos.create({
+      nombre: nombre,
+      cantidad: burgers,
+      direccion: direccion,
+      burgers: burgers,
+      entrega: entrega,
+      cantidad: cantidad,
+    });
+    console.log("Pedido agregado a nombre de: ", nombre);
+    res.status(200).send(newPedido);
   } catch (error) {
     console.log("ERROR: ", error);
     res.status(400).send(error);
   }
 };
 const getDbInfo = async () => {
-  const info = await db.query("SELECT * FROM pedidos");
+  // const info = await db.query("SELECT * FROM pedidos");
 
-  return info;
+  const pedidos = await Pedidos.findAll();
+  console.log("LISTA DE PEDIDOS: ", pedidos);
+  return pedidos;
 };
 const getAllPedidos = async (req, res) => {
   try {
     const dbData = await getDbInfo();
 
-    res.status(200).json(dbData.rows);
+    res.status(200).json(dbData);
   } catch (error) {
     res.status(404).send(error);
   }
