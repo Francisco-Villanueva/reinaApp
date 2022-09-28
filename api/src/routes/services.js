@@ -9,22 +9,35 @@ const burgerList = (req, res) => {
 };
 
 const dbInfoById = async (id) => {
-  const info = await db.query("SELECT * FROM pedidos WHERE id = $1", [id]);
-
-  return info;
-};
+  try {
+    const info = await Pedidos.findOne({
+      where:{
+        id:id
+      }
+    })
+    
+  
+    return info;
+  }
+   catch (error) {
+    return error.message
+  }
+ 
+}
 
 const getPedidoById = async (req, res) => {
+  console.log('entramos el pedido por id')
   try {
     const { id } = req.params;
     const pedidoDetails = await dbInfoById(id);
-
-    if (pedidoDetails.rows.length === 0) {
+    console.log(pedidoDetails)
+    if (pedidoDetails.length === 0) {
       return res.status(404).send("Pedido no encontrado!");
     } else {
-      res.status(200).json(pedidoDetails.rows[0]);
+      res.status(200).json(pedidoDetails);
     }
   } catch (error) {
+    console.log(error)
     res.status(404).send(error);
   }
 };
@@ -78,12 +91,20 @@ const editPedido = async (req, res) => {
     const { nombre, burgers, entrega, direccion } = req.body;
 
     const cantidad = burgers.length;
-    const update = await db.query(
-      "UPDATE pedidos SET nombre = $1, burgers =$2, entrega =$3, cantidad=$4, direccion=$5 WHERE id=$6 RETURNING *",
-      [nombre, burgers, entrega, cantidad, direccion, id]
-    );
+    const update = await Pedidos.update({
+      nombre: nombre,
+      cantidad: cantidad,
+      burgers: burgers,
+      direccion: direccion,
+      entrega: entrega
+    },
+    {
+      where:{
+        id:id
+      }
+    })
 
-    if (update.rows.length === 0) {
+    if (update.length === 0) {
       return res.status(404).send("Pedido no encontrado");
     }
     res.status(200).send("Pedido actualizado!");
@@ -95,12 +116,16 @@ const editPedido = async (req, res) => {
 const deletePedido = async (req, res) => {
   try {
     const { id } = req.params;
-    const pedido = await db.query("SELECT * FROM pedidos WHERE id = $1", [id]);
+    const pedido = await dbInfoById(id)
 
-    if (pedido.rows.length === 0) {
+    if (pedido.length === 0) {
       return res.status(404).send("Pedido no encontrado");
     } else {
-      await db.query("DELETE FROM pedidos WHERE id=$1", [id]);
+      await Pedidos.destroy({
+        where:{
+          id:id
+        }
+      })
       return res.status(200).send("Pedido eliminado!");
     }
   } catch (error) {
