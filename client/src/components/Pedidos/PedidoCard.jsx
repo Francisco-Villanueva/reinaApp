@@ -1,14 +1,17 @@
 import React from "react";
 import "./PedidoCard.css";
 export default function PedidoCard(props) {
+  let o = 1;
   return (
     <div className="container">
       <ol>
-        <ul>{props.id}</ul>
+        <ul>{o}</ul>
         <ul>{props.name}</ul>
-        <ul>
+        <ul className="burgersCont">
           <ol>
-            <ul>{props.burgers[15]}</ul>
+            {props.burgers.map((burgaa) => (
+              <ul>{burgaa}</ul>
+            ))}
           </ol>
         </ul>
         <ul>{props.entrega}</ul>

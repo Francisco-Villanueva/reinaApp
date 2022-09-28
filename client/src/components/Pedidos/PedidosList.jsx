@@ -12,7 +12,15 @@ export function PedidosList(props) {
     props.getPedidos();
   }, []);
   return (
-    <div>
+    <div className="pedidosContainer">
+      <ol>
+        <ul>nro</ul>
+        <ul>Nombre</ul>
+        <ul>Burgers</ul>
+        <ul>Entrega</ul>
+        <ul>Direccion</ul>
+        <ul>Cantidad</ul>
+      </ol>
       {props.pedidos.map((p) => (
         <PedidoCard
           key={p.id}

@@ -1,0 +1,10 @@
+.pedidosContainer {
+  width: 100vw;
+  background-color: aqua;
+}
+.pedidosContainer ol {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  flex-wrap: wrap;
+  align-items: center;
+}
