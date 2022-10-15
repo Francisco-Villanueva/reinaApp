@@ -2,7 +2,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid #000;
+  border: 2px outset #5e5a54;
+  border-radius: 1em;
+  padding: 0;
 }
 .cardContainer img {
   width: 15%;
@@ -21,4 +23,12 @@
 }
 .precios p {
   margin: 0;
+}
+.btn-add{
+  border: none;
+  padding:.3em 1em ;
+  border-radius: 1em;
+  background-color: #5e5a54;
+  color: #fff;
+  font-family: 'Montserrat';
 }

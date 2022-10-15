@@ -9,18 +9,17 @@ import { bindActionCreators } from "redux";
 export function Card(props) {
   return (
     <div className="cardContainer">
-      <img src={logo} />
+      <img src={logo} alt="burgPNG"/>
       <div className="nombre">
         <h3>{props.name}</h3>
         <span>{props.description}</span>
       </div>
       <div className="datos">
         <div className="precios">
-          <p>simple: {props.price.simple}</p>
-          <p>doble: {props.price.doble}</p>
-          <p>triple: {props.price.triple}</p>
+          <b>$ {props.price}</b>
         </div>
       </div>
+      <button className="btn-add">add</button>
     </div>
   );
 }
