@@ -7,7 +7,7 @@ const prices = {
 };
 const cheeseSimple = {
   id: "chsID",
-  name: "cheese simple",
+  name: "cheese S",
   description: "descripcion",
   price: prices.low - 120,
   "dietType:": ["carne", "vegge"],
@@ -21,16 +21,16 @@ const cheese = {
 };
 const cheeseTriple = {
   id: "chtID",
-  name: "cheese triple",
+  name: "cheese T",
   description: "descripcion",
   price: prices.low + 200,
   "dietType:": ["carne", "vegge"],
 };
 const blueSimple = {
   id: "bluesID",
-  name: "blue simple",
+  name: "blue S",
   description: "descripcion",
-  price: prices.blue -120,
+  price: prices.blue - 120,
   dietType: ["carne", "vegge"],
 };
 const blue = {
@@ -43,16 +43,16 @@ const blue = {
 
 const blueTriple = {
   id: "bluetID",
-  name: "blue triple",
+  name: "blue T",
   description: "descripcion",
   price: prices.blue + 200,
   dietType: ["carne", "vegge"],
 };
 const lifeSimple = {
   id: "lifesID",
-  name: "life simple",
+  name: "life S",
   description: "descripcion",
-  price: prices.mid2-120,
+  price: prices.mid2 - 120,
   dietType: ["carne", "vegge"],
 };
 const life = {
@@ -64,14 +64,14 @@ const life = {
 };
 const lifeTriple = {
   id: "lifetID",
-  name: "life triple",
+  name: "life T",
   description: "descripcion",
-  price: prices.mid2+200,
+  price: prices.mid2 + 200,
   dietType: ["carne", "vegge"],
 };
 const baconSimple = {
   id: "baconsID",
-  name: "bacon simple",
+  name: "bacon S",
   description: "descripcion",
   price: prices.mid2 - 120,
   dietType: ["carne", "vegge"],
@@ -86,7 +86,7 @@ const bacon = {
 
 const baconTriple = {
   id: "bacontID",
-  name: "bacon triple",
+  name: "bacon T",
   description: "descripcion",
   price: prices.mid2 + 200,
   dietType: ["carne", "vegge"],
@@ -94,7 +94,7 @@ const baconTriple = {
 
 const clasicaSimpe = {
   id: "clasicasID",
-  name: "clasica simple",
+  name: "clasica S",
   description: "descripcion",
   price: prices.mid1 - 120,
   dietType: ["carne", "vegge"],
@@ -109,14 +109,14 @@ const clasica = {
 
 const clasicaTriple = {
   id: "clasicatID",
-  name: "clasica triple",
+  name: "clasica T",
   description: "descripcion",
   price: prices.mid1 + 200,
   dietType: ["carne", "vegge"],
 };
 const cuartoSimple = {
   id: "cuartosID",
-  name: "cuarto simple",
+  name: "cuarto S",
   description: "descripcion",
   price: prices.mid1 - 120,
   dietType: ["carne", "vegge"],
@@ -130,11 +130,30 @@ const cuarto = {
 };
 const cuartoTriple = {
   id: "cuartotID",
-  name: "cuarto triple",
+  name: "cuarto T",
   description: "descripcion",
   price: prices.mid1 + 200,
   dietType: ["carne", "vegge"],
 };
 
-const data2 = [ cheeseSimple,cheese,cheeseTriple,blueSimple, blue,blueTriple,lifeSimple, life,lifeTriple,clasicaSimpe, clasica, clasicaTriple,baconSimple, bacon,baconTriple,cuartoSimple, cuarto, cuartoTriple];
+const data2 = [
+  cheeseSimple,
+  cheese,
+  cheeseTriple,
+  blueSimple,
+  blue,
+  blueTriple,
+  lifeSimple,
+  life,
+  lifeTriple,
+  clasicaSimpe,
+  clasica,
+  clasicaTriple,
+  baconSimple,
+  bacon,
+  baconTriple,
+  cuartoSimple,
+  cuarto,
+  cuartoTriple,
+];
 module.exports = { data2 };
