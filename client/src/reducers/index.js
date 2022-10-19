@@ -3,6 +3,7 @@ const initialState = {
   count: 0,
   menuLoaded: [],
   pedidosLoaded: [],
+  pedidoOnProgress:[],
   statePrueba: "pedazoooooooooo",
   load: false,
 };

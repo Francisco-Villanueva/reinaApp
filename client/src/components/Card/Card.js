@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Card.css";
 import logo from "./burger.png";
 
@@ -7,6 +7,16 @@ import * as actionCreators from "../../actions";
 import { bindActionCreators } from "redux";
 
 export function Card(props) {
+
+  const[aux, setAux]=useState({
+    nombre: "",
+    entrega: "",
+    burgers:[],
+    direccion: ""
+  })
+  const loadPedido = ()=>{
+    alert(props.name)
+  }
   return (
     <div className="cardContainer">
       <img src={logo} alt="burgPNG" />
@@ -19,13 +29,14 @@ export function Card(props) {
           <b>$ {props.price}</b>
         </div>
       </div>
-      <button className="btn-add">+</button>
+      <button onClick={()=>loadPedido()} className="btn-add">+</button>
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
   menu: state.statePrueba,
+  pedi : state.pedidoOnProgress
 });
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(actionCreators, dispatch);
