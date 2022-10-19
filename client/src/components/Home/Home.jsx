@@ -10,7 +10,6 @@ import PedidosSide from "./pedidos-side/PedidosSide";
 export function Home(props) {
   useEffect(() => {
     props.getMenu();
-    console.log(props.name);
   }, []);
   return (
     <div className="home-container">
@@ -27,7 +26,7 @@ export function Home(props) {
       <div className="body">
         <div className="main-container">
           <div className="menu-container">
-            <Testeando menu={props.menu} />
+            <Testeando menu={props.menu} addBurga={props.addBurger} />
           </div>
           <div className="pedido-container">
             <PedidosSide />

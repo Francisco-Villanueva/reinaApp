@@ -4,6 +4,8 @@ export const actionTypes = {
   GET_MENU: "GET_MENU",
   GET_PEDIDOS: "GET_PEDIDOS",
   SWITCH_BOOL: "SWITCH_BOOL",
+  ADD_BURGER: "ADD_BURGER",
+  crearPedido: "crearPedido",
 };
 
 export function getMenu() {
@@ -29,3 +31,23 @@ export function getPedidos() {
     });
   };
 }
+export function addBurger(burg) {
+  console.log("ENTRAMOS AL ADD BURGER()");
+  return {
+    type: actionTypes.ADD_BURGER,
+    payload: burg,
+  };
+}
+
+export const crearPedido = (payload) => {
+  return async function () {
+    try {
+      console.log("ENTRO AL POST: ");
+      const created = await axios.post("http://localhost:4000/pedido", payload);
+      console.log("REALIZADO EL POST");
+      return created;
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+};

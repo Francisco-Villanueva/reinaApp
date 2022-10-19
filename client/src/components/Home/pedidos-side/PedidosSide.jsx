@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./PedidosSide.css";
-
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../../../actions";
 import { bindActionCreators } from "redux";
@@ -11,10 +11,12 @@ export function PedidosSide(props) {
   }, []);
   return (
     <div className="list-container">
-      <h2>PEDIDOS</h2>
+      <Link className="Link-styles" to={"/pedidos"}>
+        <h2>PEDIDOS</h2>
+      </Link>
       <div className="lista">
         {props.pedidos1.map((p) => (
-          <p>
+          <p key={p.id}>
             <b>{p.nombre}</b> - {p.entrega}
           </p>
         ))}

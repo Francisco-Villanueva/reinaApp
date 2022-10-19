@@ -10,3 +10,7 @@
   justify-content: space-around;
   align-items: baseline;
 }
+.Link-styles {
+  text-decoration: none;
+  color: unset;
+}

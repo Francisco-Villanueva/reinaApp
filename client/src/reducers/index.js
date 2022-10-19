@@ -3,8 +3,7 @@ const initialState = {
   count: 0,
   menuLoaded: [],
   pedidosLoaded: [],
-  pedidoOnProgress:[],
-  statePrueba: "pedazoooooooooo",
+  burgerList: [],
   load: false,
 };
 const rootReducer = (state = initialState, action) => {
@@ -19,6 +18,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pedidosLoaded: action.payload,
+      };
+    case actionTypes.ADD_BURGER:
+      return {
+        ...state,
+        burgerList: action.payload,
       };
 
     default:

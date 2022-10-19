@@ -1,9 +1,9 @@
 const prices = {
   //PRECIOS DE LAS DOBLES
-  blue: 1260,
-  mid2: 1230,
-  mid1: 1200,
-  low: 1140,
+  blue: 1350,
+  mid2: 1350,
+  mid1: 1300,
+  low: 1240,
 };
 const cheeseSimple = {
   id: "chsID",
