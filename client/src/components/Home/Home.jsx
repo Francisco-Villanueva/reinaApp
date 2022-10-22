@@ -8,11 +8,13 @@ import logo from "../../images/logo.jpg";
 import "./Home.css";
 import PedidosSide from "./pedidos-side/PedidosSide";
 
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faInstagram, faWhatsapp} from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { Testeando2 } from "../Testeando2";
+import { CardByBurger } from "./cartasPorBurger/CardByBurger";
 export function Home(props) {
   useEffect(() => {
+    console.log("hola");
     props.getMenu();
   }, []);
   return (
@@ -23,15 +25,21 @@ export function Home(props) {
           <h1>Reina Burguesa</h1>
         </div>
         <div className="nav-der">
-          <p><FontAwesomeIcon icon= {faInstagram}  /> reina.buguesa</p>
-          <p><FontAwesomeIcon icon={faWhatsapp}/> 291 503-8472</p>
+          <p>
+            <FontAwesomeIcon icon={faInstagram} /> reina.buguesa
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faWhatsapp} /> 291 503-8472
+          </p>
         </div>
       </div>
 
       <div className="body">
         <div className="main-container">
           <div className="menu-container">
+            {/* <Testeando2 menu={props.menu.lif} /> */}
             <Testeando menu={props.menu} addBurga={props.addBurger} />
+            {/* <Testeando2 menu={props.menu.blu} /> */}
           </div>
           <div className="pedido-container">
             <PedidosSide />

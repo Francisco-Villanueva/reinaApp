@@ -19,16 +19,16 @@
   width: 12%;
   border-radius: 2.5rem;
 }
-.nav-der{
+.nav-der {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.nav-der p{
+.nav-der p {
   display: flex;
   align-items: center;
-  gap: .5em;
+  gap: 0.5em;
 }
 .body {
   padding: 1rem;
@@ -37,7 +37,11 @@
   background-color: rgba(250, 250, 250, 0.25);
   padding: 1em;
   display: grid;
-  grid-template-columns: 6fr 1fr;
+  grid-template-columns: 5fr 1fr;
   box-shadow: 1px 1px 10px #24262e;
   border-radius: 1rem;
+}
+.menu-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
 }

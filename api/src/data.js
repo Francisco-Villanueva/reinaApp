@@ -156,4 +156,14 @@ const data2 = [
   cuarto,
   cuartoTriple,
 ];
-module.exports = { data2 };
+
+const data3 = {
+  ch: { name: "Cheese Burger", size: [cheeseSimple, cheese, cheeseTriple] },
+  blu: [blueSimple, blue, blueTriple],
+  cuart: [cuartoSimple, cuarto, cuartoTriple],
+  lif: [lifeSimple, life, lifeTriple],
+  clasic: [clasicaSimpe, clasica, clasicaTriple],
+  baco: [baconSimple, bacon, baconTriple],
+};
+
+module.exports = { data3, data2 };

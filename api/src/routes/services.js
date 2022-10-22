@@ -1,4 +1,4 @@
-const { data, data2 } = require("../data");
+const { data, data2, data3 } = require("../data");
 const { Pedidos, Burger } = require("../db");
 const burgerList = (req, res) => {
   try {
@@ -11,33 +11,30 @@ const burgerList = (req, res) => {
 const dbInfoById = async (id) => {
   try {
     const info = await Pedidos.findOne({
-      where:{
-        id:id
-      }
-    })
-    
-  
+      where: {
+        id: id,
+      },
+    });
+
     return info;
+  } catch (error) {
+    return error.message;
   }
-   catch (error) {
-    return error.message
-  }
- 
-}
+};
 
 const getPedidoById = async (req, res) => {
-  console.log('entramos el pedido por id')
+  console.log("entramos el pedido por id");
   try {
     const { id } = req.params;
     const pedidoDetails = await dbInfoById(id);
-    console.log(pedidoDetails)
+    console.log(pedidoDetails);
     if (pedidoDetails.length === 0) {
       return res.status(404).send("Pedido no encontrado!");
     } else {
       res.status(200).json(pedidoDetails);
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(404).send(error);
   }
 };
@@ -91,18 +88,20 @@ const editPedido = async (req, res) => {
     const { nombre, burgers, entrega, direccion } = req.body;
 
     const cantidad = burgers.length;
-    const update = await Pedidos.update({
-      nombre: nombre,
-      cantidad: cantidad,
-      burgers: burgers,
-      direccion: direccion,
-      entrega: entrega
-    },
-    {
-      where:{
-        id:id
+    const update = await Pedidos.update(
+      {
+        nombre: nombre,
+        cantidad: cantidad,
+        burgers: burgers,
+        direccion: direccion,
+        entrega: entrega,
+      },
+      {
+        where: {
+          id: id,
+        },
       }
-    })
+    );
 
     if (update.length === 0) {
       return res.status(404).send("Pedido no encontrado");
@@ -116,16 +115,16 @@ const editPedido = async (req, res) => {
 const deletePedido = async (req, res) => {
   try {
     const { id } = req.params;
-    const pedido = await dbInfoById(id)
+    const pedido = await dbInfoById(id);
 
     if (pedido.length === 0) {
       return res.status(404).send("Pedido no encontrado");
     } else {
       await Pedidos.destroy({
-        where:{
-          id:id
-        }
-      })
+        where: {
+          id: id,
+        },
+      });
       return res.status(200).send("Pedido eliminado!");
     }
   } catch (error) {
