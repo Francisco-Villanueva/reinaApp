@@ -18,19 +18,22 @@ export function Card(props) {
   };
   return (
     <div className="cardContainer">
-      <img src={logo} alt="burgPNG" />
-      <div className="nombre">
-        <h3>{props.name}</h3>
-        <span>{props.description}</span>
-      </div>
-      <div className="datos">
-        <div className="precios">
-          <b>$ {props.price}</b>
+      <div className="Card-izq">
+        <div className="nombre">
+          <h3>{props.name}</h3>
+        </div>
+        <div className="description">
+          <span>{props.description}</span>
+        </div>
+        <div className="buy">
+          <button onClick={(e) => handleBurgers(e)} className="btn-add">
+            + <b>$ {props.price}</b>
+          </button>
         </div>
       </div>
-      <button onClick={(e) => handleBurgers(e)} className="btn-add">
-        +
-      </button>
+      <div className="img-container">
+        <img src={logo} alt="burgPNG" />
+      </div>
     </div>
   );
 }

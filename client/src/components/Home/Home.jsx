@@ -21,15 +21,17 @@ export function Home(props) {
     <div className="home-container">
       <div className="navbar">
         <div className="nav-izq">
-          <img src={logo} alt="logoReinA" />
-          <h1>Reina Burguesa</h1>
+          {/* <h1>Reina Burguesa</h1> */}
+          <img className="bugerPNG" src={logo} alt="logoReinA" />
         </div>
         <div className="nav-der">
           <p>
-            <FontAwesomeIcon icon={faInstagram} /> reina.buguesa
+            <FontAwesomeIcon className="social-icon ig" icon={faInstagram} />{" "}
+            reina.burguesa
           </p>
           <p>
-            <FontAwesomeIcon icon={faWhatsapp} /> 291 503-8472
+            <FontAwesomeIcon className="social-icon wp" icon={faWhatsapp} /> 291
+            503-8472
           </p>
         </div>
       </div>
