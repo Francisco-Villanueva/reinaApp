@@ -12,7 +12,7 @@ export function Card(props) {
   const handleBurgers = () => {
     setBurga([...burga, props.name]);
     console.log("brugas: ", burga, burga.length);
-    props.addBurga([...burgers, burga]);
+    props.addBurga([...burgers, burga[0]]);
 
     console.log("BURGERS: => ", burgers);
   };

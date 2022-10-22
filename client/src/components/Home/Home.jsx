@@ -7,6 +7,10 @@ import { connect } from "react-redux";
 import logo from "../../images/logo.jpg";
 import "./Home.css";
 import PedidosSide from "./pedidos-side/PedidosSide";
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faInstagram, faWhatsapp} from '@fortawesome/free-brands-svg-icons'
 export function Home(props) {
   useEffect(() => {
     props.getMenu();
@@ -19,7 +23,8 @@ export function Home(props) {
           <h1>Reina Burguesa</h1>
         </div>
         <div className="nav-der">
-          <span>social</span>
+          <p><FontAwesomeIcon icon= {faInstagram}  /> reina.buguesa</p>
+          <p><FontAwesomeIcon icon={faWhatsapp}/> 291 503-8472</p>
         </div>
       </div>
 
