@@ -7,131 +7,131 @@ const prices = {
 };
 const cheeseSimple = {
   id: "chsID",
-  name: "cheese S",
-  description: "descripcion",
+  name: "cheese Simple",
+  description: "pan, cheddar",
   price: prices.low - 120,
   "dietType:": ["carne", "vegge"],
 };
 const cheese = {
   id: "chID",
   name: "cheese",
-  description: "descripcion",
+  description: "pan y cheddar",
   price: prices.low,
   "dietType:": ["carne", "vegge"],
 };
 const cheeseTriple = {
   id: "chtID",
-  name: "cheese T",
-  description: "descripcion",
+  name: "cheese Triple",
+  description: "pan y cheddar",
   price: prices.low + 200,
   "dietType:": ["carne", "vegge"],
 };
 const blueSimple = {
   id: "bluesID",
-  name: "blue S",
-  description: "descripcion",
+  name: "blue Simple",
+  description: "Queso, azul, cebolla caramelizada y alioli",
   price: prices.blue - 120,
   dietType: ["carne", "vegge"],
 };
 const blue = {
   id: "blueID",
   name: "blue",
-  description: "descripcion",
+  description: "Queso, azul, cebolla caramelizada y alioli",
   price: prices.blue,
   dietType: ["carne", "vegge"],
 };
 
 const blueTriple = {
   id: "bluetID",
-  name: "blue T",
-  description: "descripcion",
+  name: "blue Triple",
+  description: "Queso, azul, cebolla caramelizada y alioli",
   price: prices.blue + 200,
   dietType: ["carne", "vegge"],
 };
 const lifeSimple = {
   id: "lifesID",
-  name: "life S",
-  description: "descripcion",
+  name: "life Simple",
+  description: "Panceta ahumada, cheddar, cebolla morad y salsa Life",
   price: prices.mid2 - 120,
   dietType: ["carne", "vegge"],
 };
 const life = {
   id: "lifeID",
   name: "life",
-  description: "descripcion",
+  description: "Panceta ahumada, cheddar, cebolla morad y salsa Life",
   price: prices.mid2,
   dietType: ["carne", "vegge"],
 };
 const lifeTriple = {
   id: "lifetID",
-  name: "life T",
-  description: "descripcion",
+  name: "life Triple",
+  description: "Panceta ahumada, cheddar, cebolla morad y salsa Life",
   price: prices.mid2 + 200,
   dietType: ["carne", "vegge"],
 };
 const baconSimple = {
   id: "baconsID",
-  name: "bacon S",
-  description: "descripcion",
+  name: "bacon Simple",
+  description: "Panceta ahumada, cheddar y thousand island",
   price: prices.mid2 - 120,
   dietType: ["carne", "vegge"],
 };
 const bacon = {
   id: "baconID",
   name: "bacon",
-  description: "descripcion",
+  description: "Panceta ahumada, cheddar y thousand island",
   price: prices.mid2,
   dietType: ["carne", "vegge"],
 };
 
 const baconTriple = {
   id: "bacontID",
-  name: "bacon T",
-  description: "descripcion",
+  name: "bacon Triple",
+  description: "Panceta ahumada, cheddar y thousand island",
   price: prices.mid2 + 200,
   dietType: ["carne", "vegge"],
 };
 
 const clasicaSimpe = {
   id: "clasicasID",
-  name: "clasica S",
-  description: "descripcion",
+  name: "clasica Simple",
+  description: "Cheddar, tomate, lechuga, cebolla, y thousand island",
   price: prices.mid1 - 120,
   dietType: ["carne", "vegge"],
 };
 const clasica = {
   id: "clasicaID",
   name: "clasica",
-  description: "descripcion",
+  description: "Cheddar, tomate, lechuga, cebolla, y thousand island",
   price: prices.mid1,
   dietType: ["carne", "vegge"],
 };
 
 const clasicaTriple = {
   id: "clasicatID",
-  name: "clasica T",
-  description: "descripcion",
+  name: "clasica Triple",
+  description: "Cheddar, tomate, lechuga, cebolla, y thousand island",
   price: prices.mid1 + 200,
   dietType: ["carne", "vegge"],
 };
 const cuartoSimple = {
   id: "cuartosID",
-  name: "cuarto S",
-  description: "descripcion",
+  name: "cuarto Simple",
+  description: "Cheddar, salsa cuarto de libra",
   price: prices.mid1 - 120,
   dietType: ["carne", "vegge"],
 };
 const cuarto = {
   id: "cuartoID",
   name: "cuarto",
-  description: "descripcion",
+  description: "Cheddar, salsa cuarto de libra",
   price: prices.mid1,
   dietType: ["carne", "vegge"],
 };
 const cuartoTriple = {
   id: "cuartotID",
-  name: "cuarto T",
-  description: "descripcion",
+  name: "cuarto Triple",
+  description: "Cheddar, salsa cuarto de libra",
   price: prices.mid1 + 200,
   dietType: ["carne", "vegge"],
 };

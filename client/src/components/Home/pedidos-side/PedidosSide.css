@@ -4,6 +4,9 @@
   align-items: center;
   margin: auto;
 }
+.Link-styles h2:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
 .lista {
   display: flex;
   flex-direction: column;

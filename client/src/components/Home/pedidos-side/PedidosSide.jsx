@@ -12,7 +12,7 @@ export function PedidosSide(props) {
   return (
     <div className="list-container">
       <Link className="Link-styles" to={"/pedidos"}>
-        <h2>PEDIDOS</h2>
+        <h1>PEDIDOS</h1>
       </Link>
       <div className="lista">
         {props.pedidos1.map((p) => (

@@ -8,12 +8,13 @@ import { bindActionCreators } from "redux";
 
 export function Card(props) {
   const burgers = useSelector((s) => s.burgerList);
-  const [burga, setBurga] = useState([props.name]);
+  const [burga, setBurga] = useState(props.name);
+  const [precio, setPrecio] = useState(props.price);
   const handleBurgers = () => {
-    setBurga([...burga, props.name]);
-    console.log("brugas: ", burga, burga.length);
-    props.addBurga([...burgers, burga[0]]);
-
+    setBurga(props.name);
+    console.log("brugas: ", burga);
+    console.log("precio: ", precio);
+    burgers.push(burga);
     console.log("BURGERS: => ", burgers);
   };
   return (
@@ -26,8 +27,12 @@ export function Card(props) {
           <span>{props.description}</span>
         </div>
         <div className="buy">
-          <button onClick={(e) => handleBurgers(e)} className="btn-add">
-            + <b>$ {props.price}</b>
+          <button
+            name={props.name}
+            onClick={(e) => handleBurgers(e)}
+            className="btn-add"
+          >
+            + $ {props.price}
           </button>
         </div>
       </div>
