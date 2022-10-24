@@ -4,6 +4,7 @@ const initialState = {
   menuLoaded: [],
   pedidosLoaded: [],
   burgerList: [],
+  pricesList: [],
   clientData: [],
   load: false,
 };

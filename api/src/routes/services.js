@@ -40,7 +40,7 @@ const getPedidoById = async (req, res) => {
 };
 const crearPedido = async (req, res) => {
   try {
-    const { nombre, burgers, entrega, direccion } = req.body;
+    const { nombre, burgers, entrega, direccion, precio } = req.body;
     if (!nombre || !burgers[0] || !entrega) {
       return res.status(400).send("error en los datos");
     }
@@ -57,6 +57,7 @@ const crearPedido = async (req, res) => {
       burgers: burgers,
       entrega: entrega,
       cantidad: cantidad,
+      precio: precio
     });
     console.log("Pedido agregado a nombre de: ", nombre);
     res.status(200).send(newPedido);

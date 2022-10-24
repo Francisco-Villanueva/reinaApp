@@ -28,5 +28,8 @@ module.exports = (sequelize) => {
     entrega: {
       type: DataTypes.STRING,
     },
+    precio: {
+      type: DataTypes.INTEGER,
+    },
   });
 };

@@ -3,13 +3,18 @@
   grid-template-columns: repeat(6, 1fr);
   padding: 0.4em 0;
 }
+ul{
+  text-align: start;
+  text-transform: capitalize;
+}
 .container:nth-child(even) {
   background-color: #dcac4c90;
 }
 .burgersCont ol {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: start;
+  text-transform: capitalize;
   margin: 0;
   padding: 0;
 }

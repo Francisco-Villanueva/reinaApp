@@ -1,7 +1,7 @@
 import React from "react";
 import "./PedidosList.css";
 
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import * as actionCreators from "../../actions";
 import { bindActionCreators } from "redux";
 import { useEffect } from "react";
@@ -11,7 +11,7 @@ import NavBar from "../Home/NavBar";
 export function PedidosList(props) {
   useEffect(() => {
     props.getPedidos();
-  }, []);
+  }, [props.pedidos]);
   return (
     <div>
       <NavBar />
@@ -36,6 +36,7 @@ export function PedidosList(props) {
                 entrega={p.entrega}
                 direccion={p.direccion}
                 cantidad={p.cantidad}
+                precio={p.precio}
               />
             ))}
           </table>

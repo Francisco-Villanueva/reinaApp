@@ -8,14 +8,18 @@ import { bindActionCreators } from "redux";
 
 export function Card(props) {
   const burgers = useSelector((s) => s.burgerList);
+  const precioPart = useSelector((s) => s.pricesList);
   const [burga, setBurga] = useState(props.name);
   const [precio, setPrecio] = useState(props.price);
   const handleBurgers = () => {
     setBurga(props.name);
+    setPrecio(props.price)
     console.log("brugas: ", burga);
     console.log("precio: ", precio);
     burgers.push(burga);
+    precioPart.push(precio)
     console.log("BURGERS: => ", burgers);
+    console.log("PRECIOS: => ", precioPart);
   };
   return (
     <div className="cardContainer">

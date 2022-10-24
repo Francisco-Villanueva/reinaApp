@@ -18,6 +18,7 @@ import NavBar from "./NavBar";
 import Swal from "sweetalert2";
 export function Home(props) {
   const burgers = useSelector((s) => s.burgerList);
+  const preciosPart = useSelector((s) => s.pricesList);
 
   useEffect(() => {
     console.log("hola");
@@ -26,7 +27,11 @@ export function Home(props) {
 
   const test = () => {
     const c = props.datos[0];
+
+    const precioFinal= preciosPart.reduce((acumulador, valorActual) => acumulador + valorActual)
+    console.log('')
     const pedidoFinal = {
+      precio: precioFinal,
       nombre: c.name,
       entrega: c.entrega,
       burgers: burgers,
@@ -36,9 +41,9 @@ export function Home(props) {
     props.crearPedido(pedidoFinal);
     Swal.fire({
       icon: "success",
-      title: `Pedido de ${c.name} cargado!`,
+      title: `Pedido cargado! Precio: $  ${precioFinal}`,
       showConfirmButton: false,
-      timer: 1500,
+      timer: 1000,
     });
     // console.log(pedidoFinal);
   };
@@ -50,9 +55,11 @@ export function Home(props) {
         <div className="main-container">
           <div className="menu-container">
             <ClientForm loadPedido={props.crearPedido} cliente={props.datos} />
+            
             <button className="btn-cargarpedido" onClick={test}>
               Cargar pedido
             </button>
+            
             <Testeando menu={props.menu} addBurga={props.addBurger} />
             {/* <Testeando2 menu={props.menu.blu} /> */}
           </div>
