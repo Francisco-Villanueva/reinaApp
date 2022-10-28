@@ -21,7 +21,14 @@ export function Home(props) {
   const preciosPart = useSelector((s) => s.pricesList);
 
   useEffect(() => {
+<<<<<<< HEAD
+=======
+    console.log("HOLA SOY HOME.JSX");
+>>>>>>> 7bb2d2a4bd68a0a515e6ada06d4efdb5ae705f1b
     props.getMenu();
+    props.getPedidos()
+    console.log("HOLA TERMINO HOME.JSX");
+
   }, []);
 
   const test = () => {

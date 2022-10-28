@@ -9,15 +9,21 @@ import PedidoCard from "./PedidoCard";
 import NavBar from "../Home/NavBar";
 
 export function PedidosList(props) {
+<<<<<<< HEAD
   // useEffect(() => {
   //   props.getPedidos();
   // }, [props.pedidos]);
+=======
+  useEffect(() => {
+    props.getPedidos();
+  }, []);
+>>>>>>> 7bb2d2a4bd68a0a515e6ada06d4efdb5ae705f1b
   return (
     <div>
       <NavBar />
       <div className="pedidosContainer">
         <div className="tabla-main">
-          <table>
+          
             <ol className="tabla-head">
               <ul>nro</ul>
               <ul>Nombre</ul>
@@ -39,7 +45,7 @@ export function PedidosList(props) {
                 precio={p.precio}
               />
             ))}
-          </table>
+          
         </div>
       </div>
     </div>

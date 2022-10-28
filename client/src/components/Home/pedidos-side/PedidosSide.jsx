@@ -8,7 +8,11 @@ import { bindActionCreators } from "redux";
 export function PedidosSide(props) {
   // useEffect(() => {
   //   props.getPedidos();
+<<<<<<< HEAD
   // }, [props.pedidos1]);
+=======
+  // }, []);
+>>>>>>> 7bb2d2a4bd68a0a515e6ada06d4efdb5ae705f1b
   return (
     <div className="list-container">
       <Link className="Link-styles" to={"/pedidos"}>
