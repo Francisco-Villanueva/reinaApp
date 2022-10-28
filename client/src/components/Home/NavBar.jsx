@@ -4,7 +4,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useState } from "react";
+import { getPedidos } from "../../actions";
 export default function NavBar() {
+  const pedidos = useSelector(s=>s.pedidosLoaded)
+  const dispatch = useDispatch()
+  const pedidosCant= pedidos.map(p=>p.cantidad)
+  
+  const [cantidadTotal, setCantidadTotal]=useState(0)
+  useEffect(()=>{
+    dispatch(getPedidos())
+    console.log('prueba', pedidos)
+    console.log(pedidosCant)
+  },[])
   return (
     <div>
       <div className="navbar">
@@ -12,6 +26,9 @@ export default function NavBar() {
           <Link to={"/"}>
             <img className="bugerPNG" src={logo} alt="logoReinA" />
           </Link>
+        </div>
+        <div className="nav-mid">
+         <h3>Burger vendidas: {cantidadTotal}</h3>
         </div>
         <div className="nav-der">
           <p>

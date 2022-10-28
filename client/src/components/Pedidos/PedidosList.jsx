@@ -11,13 +11,13 @@ import NavBar from "../Home/NavBar";
 export function PedidosList(props) {
   useEffect(() => {
     props.getPedidos();
-  }, [props.pedidos]);
+  }, []);
   return (
     <div>
       <NavBar />
       <div className="pedidosContainer">
         <div className="tabla-main">
-          <table>
+          
             <ol className="tabla-head">
               <ul>nro</ul>
               <ul>Nombre</ul>
@@ -39,7 +39,7 @@ export function PedidosList(props) {
                 precio={p.precio}
               />
             ))}
-          </table>
+          
         </div>
       </div>
     </div>
