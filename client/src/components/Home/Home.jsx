@@ -21,15 +21,16 @@ export function Home(props) {
   const preciosPart = useSelector((s) => s.pricesList);
 
   useEffect(() => {
-    console.log("hola");
     props.getMenu();
   }, []);
 
   const test = () => {
     const c = props.datos[0];
 
-    const precioFinal= preciosPart.reduce((acumulador, valorActual) => acumulador + valorActual)
-    console.log('')
+    const precioFinal = preciosPart.reduce(
+      (acumulador, valorActual) => acumulador + valorActual
+    );
+    console.log("");
     const pedidoFinal = {
       precio: precioFinal,
       nombre: c.name,
@@ -55,11 +56,11 @@ export function Home(props) {
         <div className="main-container">
           <div className="menu-container">
             <ClientForm loadPedido={props.crearPedido} cliente={props.datos} />
-            
+
             <button className="btn-cargarpedido" onClick={test}>
               Cargar pedido
             </button>
-            
+
             <Testeando menu={props.menu} addBurga={props.addBurger} />
             {/* <Testeando2 menu={props.menu.blu} /> */}
           </div>

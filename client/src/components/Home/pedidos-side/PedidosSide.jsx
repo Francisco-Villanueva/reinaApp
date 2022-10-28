@@ -6,9 +6,9 @@ import * as actionCreators from "../../../actions";
 import { bindActionCreators } from "redux";
 
 export function PedidosSide(props) {
-  useEffect(() => {
-    props.getPedidos();
-  }, [props.pedidos1]);
+  // useEffect(() => {
+  //   props.getPedidos();
+  // }, [props.pedidos1]);
   return (
     <div className="list-container">
       <Link className="Link-styles" to={"/pedidos"}>
@@ -17,7 +17,8 @@ export function PedidosSide(props) {
       <div className="lista">
         {props.pedidos1.map((p) => (
           <p key={p.id}>
-            <b style={{textTransform :'capitalize'}}>{p.nombre}</b> - {p.entrega}
+            <b style={{ textTransform: "capitalize" }}>{p.nombre}</b> -{" "}
+            {p.entrega}
           </p>
         ))}
       </div>

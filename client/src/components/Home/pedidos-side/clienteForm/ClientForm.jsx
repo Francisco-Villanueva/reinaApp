@@ -26,7 +26,7 @@ export default function ClientForm(props) {
   return (
     <div className="client-container">
       <input
-        autocomplete="off"
+        autoComplete="off"
         name="name"
         value={client.name}
         className="clientData"
@@ -58,7 +58,7 @@ export default function ClientForm(props) {
       </select>
 
       <input
-        autocomplete="off"
+        autoComplete="off"
         name="direccion"
         value={client.direccion}
         className="clientData"

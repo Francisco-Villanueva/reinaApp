@@ -9,9 +9,9 @@ import PedidoCard from "./PedidoCard";
 import NavBar from "../Home/NavBar";
 
 export function PedidosList(props) {
-  useEffect(() => {
-    props.getPedidos();
-  }, [props.pedidos]);
+  // useEffect(() => {
+  //   props.getPedidos();
+  // }, [props.pedidos]);
   return (
     <div>
       <NavBar />
