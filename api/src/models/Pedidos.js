@@ -31,5 +31,8 @@ module.exports = (sequelize) => {
     precio: {
       type: DataTypes.INTEGER,
     },
+    bloque: {
+      type: DataTypes.INTEGER,
+    },
   });
 };

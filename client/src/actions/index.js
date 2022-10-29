@@ -5,6 +5,7 @@ export const actionTypes = {
   GET_PEDIDOS: "GET_PEDIDOS",
   SWITCH_BOOL: "SWITCH_BOOL",
   ADD_BURGER: "ADD_BURGER",
+  CLEAN_BURGER_LIST: "CLEAN_BURGER_LIST",
   crearPedido: "crearPedido",
 };
 
@@ -36,6 +37,12 @@ export function addBurger(burg) {
   return {
     type: actionTypes.ADD_BURGER,
     payload: burg,
+  };
+}
+export function cleanBurgerList() {
+  console.log("ENTRAMOS AL CLEAN BURGER LIST()");
+  return {
+    type: actionTypes.CLEAN_BURGER_LIST,
   };
 }
 

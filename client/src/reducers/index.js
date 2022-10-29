@@ -6,6 +6,13 @@ const initialState = {
   burgerList: [],
   pricesList: [],
   clientData: [],
+  bloque1:[],
+  bloque2:[],
+  bloque3:[],
+  bloque4:[],
+  bloque5:[],
+  bloque6:[],
+  bloque7:[],
   load: false,
 };
 const rootReducer = (state = initialState, action) => {
@@ -20,6 +27,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pedidosLoaded: action.payload,
+      };
+    case actionTypes.CLEAN_BURGER_LIST:
+      return {
+        ...state,
+        burgerList: [],
+        pricesList: [],
       };
 
     default:

@@ -1,5 +1,5 @@
-import React from "react";
-import "./PedidosList.css";
+import React from 'react'
+import './PedidosList.css'
 
 import { connect, useSelector } from "react-redux";
 import * as actionCreators from "../../actions";
@@ -8,20 +8,10 @@ import { useEffect } from "react";
 import PedidoCard from "./PedidoCard";
 import NavBar from "../Home/NavBar";
 
-export function PedidosList(props) {
-
-  // useEffect(() => {
-  //   props.getPedidos();
-  // }, [props.pedidos]);
-
- 
-  console.log('LISTA DE PEDIDOS', props.pedidos)
-  props.pedidos.sort((a,b)=>a.bloque-b.bloque)
-  // console.log('LISTA DE PEDIDOS ordenados', orden)
-
+export  function PedidosPorBloque(props) {
   return (
     <div>
-      <NavBar />
+         <NavBar />
       <div className="pedidosContainer">
         <div className="tabla-main">
           
@@ -50,14 +40,14 @@ export function PedidosList(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
-
 const mapStateToProps = (state) => ({
-  pedidos: state.pedidosLoaded,
-});
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(actionCreators, dispatch);
-};
-export default connect(mapStateToProps, mapDispatchToProps)(PedidosList);
+    pedidos: state.pedidosLoaded,
+  });
+  
+  const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(actionCreators, dispatch);
+  };
+  export default connect(mapStateToProps, mapDispatchToProps)(PedidosPorBloque);
+  
