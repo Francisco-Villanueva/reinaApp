@@ -10,12 +10,16 @@ import NavBar from "../Home/NavBar";
 
 export function PedidosList(props) {
 
-  // useEffect(() => {
-  //   props.getPedidos();
-  // }, [props.pedidos]);
+  let contador = props.pedidos.length
+  let entrega2 = useSelector(s=>s.pedidosEntregados)
+  useEffect(() => {
+    props.getPedidos();
+    // console.log('useEfect ENTREGAS  ', contador)
+    // console.log('PEDIDOS ENTREGADOS: ', entrega2)
+  }, [contador]);
 
  
-  console.log('LISTA DE PEDIDOS', props.pedidos)
+  // console.log('LISTA DE PEDIDOS', props.pedidos)
   props.pedidos.sort((a,b)=>a.bloque-b.bloque)
   // console.log('LISTA DE PEDIDOS ordenados', orden)
 
@@ -32,6 +36,7 @@ export function PedidosList(props) {
               <ul>Entrega</ul>
               <ul>Direccion</ul>
               <ul>Cantidad</ul>
+              <ul>Acciones</ul>
             </ol>
             <hr />
             {props.pedidos.map((p) => (
@@ -44,6 +49,7 @@ export function PedidosList(props) {
                 direccion={p.direccion}
                 cantidad={p.cantidad}
                 precio={p.precio}
+                deleteFunc={p.deletePedido}
               />
             ))}
           

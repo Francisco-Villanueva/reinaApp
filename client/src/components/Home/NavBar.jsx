@@ -15,11 +15,7 @@ export default function NavBar() {
   let cantidaTotal= useSelector(p=>p.count)
   
   useEffect(()=>{
-     
       dispatch(getPedidos())
-   
-    console.log('prueba', pedidos)
-    console.log(pedidosCant)
   },[])
   return (
     <div>

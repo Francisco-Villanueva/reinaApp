@@ -6,6 +6,7 @@ const initialState = {
   burgerList: [],
   pricesList: [],
   clientData: [],
+  pedidosEntregados:[],
   bloque1:[],
   bloque2:[],
   bloque3:[],
@@ -36,6 +37,18 @@ const rootReducer = (state = initialState, action) => {
         pricesList: [],
       };
     
+    case actionTypes.DELETE_PEDIDO:
+      return{
+        ...state,
+        pedidosLoaded: initialState.pedidosLoaded.filter(m=> m.id != action.payload)
+      }
+
+      case actionTypes.ENTREGAR_PEDIDO:
+        return {
+          ...state,
+          pedidosEntregados: action.payload 
+        };
+
     default:
       return state;
   }

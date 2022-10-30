@@ -16,10 +16,8 @@ export function Home(props) {
   const preciosPart = useSelector((s) => s.pricesList);
 
   useEffect(() => {
-    console.log("HOLA SOY HOME.JSX");
     props.getMenu();
     props.getPedidos()
-    console.log("HOLA TERMINO HOME.JSX");
 
   }, []);
 
@@ -30,7 +28,6 @@ export function Home(props) {
     const precioFinal = preciosPart.reduce(
       (acumulador, valorActual) => acumulador + valorActual
     );
-    console.log("PUREBA DE C", c);
     const pedidoFinal = {
       precio: precioFinal,
       nombre: c.name,

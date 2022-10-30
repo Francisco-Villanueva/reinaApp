@@ -4,7 +4,7 @@ import "./ClientForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 export default function ClientForm(props) {
-  console.log(props.cliente);
+ 
   const [client, setClient] = useState({
     name: "",
     direccion: "",
