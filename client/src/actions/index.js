@@ -7,6 +7,7 @@ export const actionTypes = {
   ADD_BURGER: "ADD_BURGER",
   CLEAN_BURGER_LIST: "CLEAN_BURGER_LIST",
   crearPedido: "crearPedido",
+  SET_COUNT:"SET_COUNT"
 };
 
 export function getMenu() {
@@ -26,9 +27,17 @@ export function getPedidos() {
     const json = await axios.get("http://localhost:4000/pedido");
 
     console.log("entramos al getPedidos(), retorna:  ", json.data);
+    let countAux=[];
+     json.data.forEach(e => {countAux.push(e.cantidad)
+    });
+
+    let contador = countAux.reduce((a,b)=>a+b,0)
+
+    console.log("entramos al getPedidos() CONTADOR, retorna:  ", contador);
     return dispatch({
       type: actionTypes.GET_PEDIDOS,
       payload: json.data,
+      payloadCount: contador,
     });
   };
 }
@@ -45,6 +54,8 @@ export function cleanBurgerList() {
     type: actionTypes.CLEAN_BURGER_LIST,
   };
 }
+
+
 
 export const crearPedido = (payload) => {
   return async function () {

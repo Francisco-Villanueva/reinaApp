@@ -27,6 +27,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pedidosLoaded: action.payload,
+        count: action.payloadCount
       };
     case actionTypes.CLEAN_BURGER_LIST:
       return {
@@ -34,7 +35,7 @@ const rootReducer = (state = initialState, action) => {
         burgerList: [],
         pricesList: [],
       };
-
+    
     default:
       return state;
   }

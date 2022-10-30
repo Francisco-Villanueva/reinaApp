@@ -7,15 +7,17 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
-import { getPedidos } from "../../actions";
+import { getPedidos,  } from "../../actions";
 export default function NavBar() {
-  const pedidos = useSelector(s=>s.pedidosLoaded)
+  let pedidos = useSelector(s=>s.pedidosLoaded)
   const dispatch = useDispatch()
-  const pedidosCant= pedidos.map(p=>p.cantidad)
+  let pedidosCant= pedidos.map(p=>p.cantidad)
+  let cantidaTotal= useSelector(p=>p.count)
   
-  const [cantidadTotal, setCantidadTotal]=useState(0)
   useEffect(()=>{
-    dispatch(getPedidos())
+     
+      dispatch(getPedidos())
+   
     console.log('prueba', pedidos)
     console.log(pedidosCant)
   },[])
@@ -23,12 +25,12 @@ export default function NavBar() {
     <div>
       <div className="navbar">
         <div className="nav-izq">
-          <Link to={"/"}>
+          <Link to={"/home"}>
             <img className="bugerPNG" src={logo} alt="logoReinA" />
           </Link>
         </div>
         <div className="nav-mid">
-         <h3>Burger vendidas: {cantidadTotal}</h3>
+         <h3>Burger vendidas: {cantidaTotal}</h3>
         </div>
         <div className="nav-der">
           <p>
