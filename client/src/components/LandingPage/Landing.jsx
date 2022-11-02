@@ -6,14 +6,26 @@ import {Link} from 'react-router-dom'
 export default function Landing() {
   return (
     <div className='landing-mainContainer'>
-      <Link to={'/home'}>
-        <h1>REINA BURGUESA</h1>
-      </Link>
-      <Link to={'/menu'}>
-        <h1>MENU</h1>
-      </Link>
-
         <img src={logo}/>
+
+        <div className='cards-Container'>
+
+          <Link  className='link-style' to={'/home'}>
+            <div className='cardLanding'>
+             <p>REINA BURGUESA</p>
+            <span> Tomar pedidos </span>
+            </div>
+          </Link>
+          <Link  className='link-style' to={'/menu'}>
+           <div className='cardLanding'>
+            <p>MENU</p>
+            <span>Editar y ver menú</span>
+            </div>
+          </Link>
+        </div>
+    
+     
+
     </div>
   )
 }

@@ -16,6 +16,7 @@ const initialState = {
   bloque7:[],
   load: false,
   burgersMenu:[],
+  burgerData:[]
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -55,6 +56,12 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         burgersMenu: action.payload
       }
+    case actionTypes.GET_BURGER_DATA:
+      return{
+        ...state,
+        burgerData: action.payload
+      }
+    
     default:
       return state;
   }

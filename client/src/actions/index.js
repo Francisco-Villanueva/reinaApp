@@ -10,7 +10,9 @@ export const actionTypes = {
   SET_COUNT:"SET_COUNT",
   DELETE_PEDIDO: "DELETE_PEDIDO",
   ENTREGAR_PEDIDO: "ENTREGAR_PEDIDO",
-  GET_BURGERS :'GET_BURGERS'
+  GET_BURGERS :'GET_BURGERS',
+  GET_BURGER_DATA:'GET_BURGER_DATA',
+  EDIT_BURGER:'EDIT_BURGER'
 };
 
 export function getMenu() {
@@ -117,4 +119,36 @@ export function entregarPedido(id){
       throw new Error(error);
     }
 }
+}
+export function getBurgerInfo(id){
+  return async function(dispatch){
+    try {
+      const json = await axios.get(`http://localhost:4000/burger/${id}`)
+      console.log('ENTRO AL getBurgerInfo(): ', json.data)
+
+      return dispatch({
+        type: actionTypes.GET_BURGER_DATA,
+        payload: json.data
+      })
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+}
+
+export function editBurger(payload,id){
+  return async function () {
+    try {
+      console.log("ENTRO AL editBurger(): ", payload+ "  +  ", id);
+      const edited = await axios.put(`http://localhost:4000/burger/${id}`, payload);
+     
+      return edited
+      // return dispatch({
+      //   type: actionTypes.EDIT_BURGER,
+      //   payload: edited
+      // });
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
 }
