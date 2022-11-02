@@ -19,10 +19,7 @@ module.exports = (sequelize) => {
       primaryKey: true,
     },
     price: {
-      type: DataTypes.ARRAY(STRING),
-    },
-    dietType: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
     },
   });
 };

@@ -5,6 +5,7 @@ import AddPedido from "./components/Formulario/AddPedido";
 import Home from "./components/Home/Home";
 import { PedidosPorBloque } from "./components/Pedidos/PedidosPorBloque";
 import Landing from "./components/LandingPage/Landing";
+import Menu from "./components/Menu/Menu";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/pedidos" element={<PedidosList />} />
         <Route exact path="/pedidosBloque " element={<PedidosPorBloque/>} />
         <Route exact path="/nuevoPedido" element={<AddPedido />} />
+        <Route exact path="/menu" element={<Menu />} />
       </Routes>
     </div>
   );

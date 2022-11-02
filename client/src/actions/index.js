@@ -9,7 +9,8 @@ export const actionTypes = {
   crearPedido: "crearPedido",
   SET_COUNT:"SET_COUNT",
   DELETE_PEDIDO: "DELETE_PEDIDO",
-  ENTREGAR_PEDIDO: "ENTREGAR_PEDIDO"
+  ENTREGAR_PEDIDO: "ENTREGAR_PEDIDO",
+  GET_BURGERS :'GET_BURGERS'
 };
 
 export function getMenu() {
@@ -42,6 +43,19 @@ export function getPedidos() {
       payloadCount: contador,
     });
   };
+}
+
+export function getBurgers() {
+  return async function (dispatch){
+    const json=await axios.get("http://localhost:4000/burger");
+
+
+    console.log('GETBURGERS()=> ', json.data)
+    return dispatch({
+      type: actionTypes.GET_BURGERS,
+      payload: json.data
+    })
+  }
 }
 export function addBurger(burg) {
   // console.log("ENTRAMOS AL ADD BURGER()");

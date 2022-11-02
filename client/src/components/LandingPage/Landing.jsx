@@ -9,6 +9,9 @@ export default function Landing() {
       <Link to={'/home'}>
         <h1>REINA BURGUESA</h1>
       </Link>
+      <Link to={'/menu'}>
+        <h1>MENU</h1>
+      </Link>
 
         <img src={logo}/>
     </div>

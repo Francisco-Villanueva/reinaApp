@@ -19,4 +19,17 @@ router.put("/pedido/:id", editPedido); //
 router.delete("/pedido/:id", deletePedido);//
 router.post("/pedido", crearPedido);//
 
+const {
+  createBurger,
+  deleteBurger,
+  getAllBurgers,
+  editBurger,
+  getOneBurger
+} = require("./burgerServices");
+
+router.get("/burger", getAllBurgers)
+router.post("/burger", createBurger)
+router.get("/burger/:id", getOneBurger)
+router.put("/burger/:id", editBurger)
+router.delete("/burger/:id", deleteBurger)
 module.exports = router;
