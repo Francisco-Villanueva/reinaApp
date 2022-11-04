@@ -5,6 +5,20 @@
     background-position: center;
     background-size: contain;
     padding-top: 1rem;
+    display: flex;
+    flex-direction: column  ;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-container{
+    background-color: #000;
+    width: 20vw;
+    box-shadow: 1px 1px 10px #000;
+    border-radius: 1rem;
+}
+.img-container img{
+    width: 50%;
 }
 .cards-Container{
     display: grid;
@@ -22,18 +36,14 @@
     padding: 0;
     margin: 0;
 }
-.landing-mainContainer img{
-    width: 10%;
-    border-radius: 2rem;
-    box-shadow: 1px 1px 10px #000;
-}
+
 
 .cardLanding{
     box-shadow: 1px 1px 10px #000;
     border-radius: 1em;
     background-color: #e2aa3d;
     transition: background .3s;
-    padding: 2rem 0;
+    padding: 2rem ;
 }
 
 .cardLanding:hover{

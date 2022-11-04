@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBurgers } from '../../actions'
+import BackBtn from '../Btn-backNavigate/BackBtn'
 import CardB from './burgerCard/CardB'
 import './Menu.css'
 export default function Menu() {
@@ -12,6 +13,7 @@ export default function Menu() {
     },[])
   return (
     <div>
+      <BackBtn/>
         <h2>LISTA DE BURGERS</h2>
         <div className='card-container'>
 

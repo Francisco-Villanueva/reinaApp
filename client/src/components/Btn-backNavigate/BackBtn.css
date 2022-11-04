@@ -1,0 +1,19 @@
+.btnBack-container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* background-color: antiquewhite; */
+}
+
+.btn-back{
+    height: 40px;
+    width: 40px;
+    background:none;
+    border-radius: 10rem;
+    padding: .2em;
+    background-color: aqua;
+}
+
+.btn-back:hover{
+    background-color: bisque;
+}

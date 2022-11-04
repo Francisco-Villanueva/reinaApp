@@ -10,7 +10,7 @@
     justify-content: center;
     
 }
-h3, b{
+.data-container h3, .data-container b{
     margin: 0;
     color: #000;
 }

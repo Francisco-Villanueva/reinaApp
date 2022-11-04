@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getPedidos,  } from "../../actions";
+import BackBtn from "../Btn-backNavigate/BackBtn";
 export default function NavBar() {
   let pedidos = useSelector(s=>s.pedidosLoaded)
   const dispatch = useDispatch()
@@ -20,6 +21,7 @@ export default function NavBar() {
   return (
     <div>
       <div className="navbar">
+        <BackBtn/>
         <div className="nav-izq">
           <Link to={"/home"}>
             <img className="bugerPNG" src={logo} alt="logoReinA" />

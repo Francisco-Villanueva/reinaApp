@@ -6,10 +6,11 @@ import {Link} from 'react-router-dom'
 export default function Landing() {
   return (
     <div className='landing-mainContainer'>
+      <div className='img-container'>
         <img src={logo}/>
+      </div>
 
         <div className='cards-Container'>
-
           <Link  className='link-style' to={'/home'}>
             <div className='cardLanding'>
              <p>REINA BURGUESA</p>
