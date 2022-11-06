@@ -11,14 +11,14 @@
     justify-content: center;
 }
 
-.img-container{
+.img-container-landing{
     background-color: #000;
-    width: 20vw;
+    width: 100vw;
     box-shadow: 1px 1px 10px #000;
     border-radius: 1rem;
 }
-.img-container img{
-    width: 50%;
+.img-container-landing img{
+    width: 12vw;
 }
 .cards-Container{
     display: grid;
@@ -26,6 +26,7 @@
     grid-template-rows: repeat(1, 2fr);
     gap: 1rem;
     padding: 1rem 15rem;
+    /* background-color: rgba(0,0,0,.5); */
 }
 
 .link-style {
@@ -44,10 +45,23 @@
     background-color: #e2aa3d;
     transition: background .3s;
     padding: 2rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1em;
 }
 
 .cardLanding:hover{
     background-color: #e7a625;
+}
+.cardLanding:hover .icon-cardLanding{
+    color: #83611e;
+}
+
+.icon-cardLanding{
+    height: 6rem;
+    color: #fff;
+    transition: all .3s;
 }
 .cardLanding p{
     margin: 0;

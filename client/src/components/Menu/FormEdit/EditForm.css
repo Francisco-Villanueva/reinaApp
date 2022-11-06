@@ -20,8 +20,9 @@
 }
 .inputEditBurg{
     padding: .5em 1em;
-    background-color: rgba(255,255,255,0.5);
-    color: #000;
+    background:none;
+    border: none;
+    border-bottom:1px solid #000;
     font-size: 1rem;
     font-weight: 600;
 }
