@@ -6,17 +6,17 @@ const initialState = {
   burgerList: [],
   pricesList: [],
   clientData: [],
-  pedidosEntregados:[],
-  bloque1:[],
-  bloque2:[],
-  bloque3:[],
-  bloque4:[],
-  bloque5:[],
-  bloque6:[],
-  bloque7:[],
+  pedidosEntregados: [],
+  bloque1: [],
+  bloque2: [],
+  bloque3: [],
+  bloque4: [],
+  bloque5: [],
+  bloque6: [],
+  bloque7: [],
   load: false,
-  burgersMenu:[],
-  burgerData:[]
+  burgersMenu: [],
+  burgerData: [],
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -30,7 +30,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pedidosLoaded: action.payload,
-        count: action.payloadCount
+        count: action.payloadCount,
       };
     case actionTypes.CLEAN_BURGER_LIST:
       return {
@@ -38,30 +38,32 @@ const rootReducer = (state = initialState, action) => {
         burgerList: [],
         pricesList: [],
       };
-    
-    case actionTypes.DELETE_PEDIDO:
-      return{
-        ...state,
-        pedidosLoaded: initialState.pedidosLoaded.filter(m=> m.id != action.payload)
-      }
 
-      case actionTypes.ENTREGAR_PEDIDO:
-        return {
-          ...state,
-          pedidosEntregados: action.payload 
-        };
+    case actionTypes.DELETE_PEDIDO:
+      return {
+        ...state,
+        pedidosLoaded: initialState.pedidosLoaded.filter(
+          (m) => m.id != action.payload
+        ),
+      };
+
+    case actionTypes.ENTREGAR_PEDIDO:
+      return {
+        ...state,
+        pedidosEntregados: action.payload,
+      };
 
     case actionTypes.GET_BURGERS:
-      return{
+      return {
         ...state,
-        burgersMenu: action.payload
-      }
+        burgersMenu: action.payload,
+      };
     case actionTypes.GET_BURGER_DATA:
-      return{
+      return {
         ...state,
-        burgerData: action.payload
-      }
-    
+        burgerData: action.payload,
+      };
+
     default:
       return state;
   }
