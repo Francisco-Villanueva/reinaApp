@@ -13,7 +13,6 @@ export function Testeando(props) {
             name={burg.name}
             price={burg.price}
             description={burg.description}
-            types={burg.dietType}
             addBurga={props.addBurga}
           />
         ))}

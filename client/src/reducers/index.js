@@ -63,6 +63,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         burgerData: action.payload,
       };
+    case actionTypes.CREATE_BURGER:
+      state.burgersMenu.push(action.payload);
+      return {
+        ...state,
+      };
 
     default:
       return state;

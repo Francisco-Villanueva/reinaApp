@@ -18,6 +18,9 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
+    carnes: {
+      type: DataTypes.INTEGER,
+    },
     price: {
       type: DataTypes.INTEGER,
     },

@@ -7,12 +7,13 @@ export const actionTypes = {
   ADD_BURGER: "ADD_BURGER",
   CLEAN_BURGER_LIST: "CLEAN_BURGER_LIST",
   crearPedido: "crearPedido",
-  SET_COUNT:"SET_COUNT",
+  SET_COUNT: "SET_COUNT",
   DELETE_PEDIDO: "DELETE_PEDIDO",
   ENTREGAR_PEDIDO: "ENTREGAR_PEDIDO",
-  GET_BURGERS :'GET_BURGERS',
-  GET_BURGER_DATA:'GET_BURGER_DATA',
-  EDIT_BURGER:'EDIT_BURGER'
+  GET_BURGERS: "GET_BURGERS",
+  GET_BURGER_DATA: "GET_BURGER_DATA",
+  EDIT_BURGER: "EDIT_BURGER",
+  CREATE_BURGER: "CREATE_BURGER",
 };
 
 export function getMenu() {
@@ -32,11 +33,12 @@ export function getPedidos() {
     const json = await axios.get("http://localhost:4000/pedido");
 
     // console.log("entramos al getPedidos(), retorna:  ", json.data);
-    let countAux=[];
-     json.data.forEach(e => {countAux.push(e.cantidad)
+    let countAux = [];
+    json.data.forEach((e) => {
+      countAux.push(e.cantidad);
     });
 
-    let contador = countAux.reduce((a,b)=>a+b,0)
+    let contador = countAux.reduce((a, b) => a + b, 0);
 
     // console.log("entramos al getPedidos() CONTADOR, retorna:  ", contador);
     return dispatch({
@@ -48,16 +50,15 @@ export function getPedidos() {
 }
 
 export function getBurgers() {
-  return async function (dispatch){
-    const json=await axios.get("http://localhost:4000/burger");
+  return async function (dispatch) {
+    const json = await axios.get("http://localhost:4000/burger");
 
-
-    console.log('GETBURGERS()=> ', json.data)
+    console.log("GETBURGERS()=> ", json.data);
     return dispatch({
       type: actionTypes.GET_BURGERS,
-      payload: json.data
-    })
-  }
+      payload: json.data,
+    });
+  };
 }
 export function addBurger(burg) {
   // console.log("ENTRAMOS AL ADD BURGER()");
@@ -73,8 +74,6 @@ export function cleanBurgerList() {
   };
 }
 
-
-
 export const crearPedido = (payload) => {
   return async function () {
     try {
@@ -88,65 +87,83 @@ export const crearPedido = (payload) => {
   };
 };
 
-export function deletePedido (id){
-  return async function(){
+export function deletePedido(id) {
+  return async function () {
     try {
-     await axios.delete(`http://localhost:4000/pedido/${id}`)
+      await axios.delete(`http://localhost:4000/pedido/${id}`);
 
-    // console.log('ENTRO AL DELETEPEDIDO()')
-    return {
-      type: actionTypes.DELETE_PEDIDO,
-      payload: id,
-    };
+      // console.log('ENTRO AL DELETEPEDIDO()')
+      return {
+        type: actionTypes.DELETE_PEDIDO,
+        payload: id,
+      };
     } catch (error) {
       throw new Error(error);
     }
-  }
+  };
 }
 
-export function entregarPedido(id){
-  return async function(){
+export function entregarPedido(id) {
+  return async function () {
     try {
-      const req = await axios.get(`http://localhost:4000/pedido/${id}`)
+      const req = await axios.get(`http://localhost:4000/pedido/${id}`);
 
-      console.log('ACTION ENTREGAR', req.data)
+      console.log("ACTION ENTREGAR", req.data);
       return {
         type: actionTypes.ENTREGAR_PEDIDO,
-        payload: req.data
-      }
-    
+        payload: req.data,
+      };
     } catch (error) {
       throw new Error(error);
     }
+  };
 }
-}
-export function getBurgerInfo(id){
-  return async function(dispatch){
+export function getBurgerInfo(id) {
+  return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:4000/burger/${id}`)
-      console.log('ENTRO AL getBurgerInfo(): ', json.data)
+      const json = await axios.get(`http://localhost:4000/burger/${id}`);
+      console.log("ENTRO AL getBurgerInfo(): ", json.data);
 
       return dispatch({
         type: actionTypes.GET_BURGER_DATA,
-        payload: json.data
-      })
+        payload: json.data,
+      });
     } catch (error) {
       throw new Error(error);
     }
-  }
+  };
 }
 
-export function editBurger(payload,id){
+export function editBurger(id, payload) {
   return async function () {
     try {
-      console.log("ENTRO AL editBurger(): ", payload+ "  +  ", id);
-      const edited = await axios.put(`http://localhost:4000/burger/${id}`, payload);
-     
-      return edited
+      console.log("ENTRO AL editBurger(): ", id + "  +  ", payload);
+      const edited = await axios.put(
+        `http://localhost:4000/burger/${id}`,
+        payload
+      );
+
+      return edited;
       // return dispatch({
       //   type: actionTypes.EDIT_BURGER,
       //   payload: edited
       // });
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+}
+
+export function createBurger(payload) {
+  return async function (dispatch) {
+    try {
+      console.log("ENTRO AL CREATEBURGER() => ", payload);
+      const create = await axios.post(`http://localhost:4000/burger`, payload);
+
+      return dispatch({
+        type: actionTypes.CREATE_BURGER,
+        payload: create,
+      });
     } catch (error) {
       throw new Error(error);
     }

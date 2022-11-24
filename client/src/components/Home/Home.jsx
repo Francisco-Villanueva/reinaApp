@@ -13,12 +13,12 @@ import NavBar from "./NavBar";
 import Swal from "sweetalert2";
 export function Home(props) {
   let burgers = useSelector((s) => s.burgerList);
+  let burgersMenu = useSelector((s) => s.burgersMenu);
   const preciosPart = useSelector((s) => s.pricesList);
 
   useEffect(() => {
     props.getMenu();
-    props.getPedidos()
-
+    props.getPedidos();
   }, []);
 
   const test = () => {
@@ -35,18 +35,16 @@ export function Home(props) {
       burgers: burgers,
       pago: c.pago,
       direccion: c.direccion,
-      bloque: c.bloque
-    }
+      bloque: c.bloque,
+    };
     props.crearPedido(pedidoFinal);
-    props.cleanBurgerList()
+    props.cleanBurgerList();
     Swal.fire({
       icon: "success",
       title: `Pedido cargado! Precio: $  ${precioFinal}`,
       showConfirmButton: false,
       timer: 1000,
     });
-
-    
   };
   return (
     <div className="home-container">
@@ -61,7 +59,7 @@ export function Home(props) {
               Cargar pedido
             </button>
 
-            <Testeando menu={props.menu} addBurga={props.addBurger} />
+            <Testeando menu={burgersMenu} addBurga={props.addBurger} />
             {/* <Testeando2 menu={props.menu.blu} /> */}
           </div>
           <div className="pedido-container">
