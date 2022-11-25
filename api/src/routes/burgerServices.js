@@ -1,6 +1,3 @@
-/* PARAMS TO CREATE BURGER
-name, description, id, price
-*/
 const { Burger } = require("../db");
 
 const getDbInfo = async () => {

@@ -1,8 +1,12 @@
 const { data, data2, data3 } = require("../data");
+const axios = require("axios");
 const { Pedidos, Burger } = require("../db");
-const burgerList = (req, res) => {
+const db = require("../db");
+const burgerList = async (req, res) => {
   try {
-    res.status(200).send(data2);
+    const json = await axios.get("http://localhost:4000/burger");
+    console.log("A VER  ", json);
+    res.status(200).send(json.data);
   } catch (error) {
     res.status(400).json(error);
   }
@@ -58,7 +62,7 @@ const crearPedido = async (req, res) => {
       entrega: entrega,
       cantidad: cantidad,
       precio: precio,
-      bloque:bloque
+      bloque: bloque,
     });
     console.log("Pedido agregado a nombre de: ", nombre);
     res.status(200).send(newPedido);
@@ -78,9 +82,12 @@ const getAllPedidos = async (req, res) => {
   try {
     const dbData = await getDbInfo();
 
+    dbData.sort((a, b) => Date.parse(a.bloque) - Date.parse(b.bloque));
+    console.log("EL TYPEOF DEL BLOQUE ES....  ", typeof dbData[0].bloque);
     res.status(200).json(dbData);
   } catch (error) {
-    res.status(404).send(error);
+    console.log(error);
+    res.status(404).send(error.message);
   }
 };
 

@@ -20,7 +20,7 @@ export function getMenu() {
   return async function (dispatch) {
     const json = await axios.get("http://localhost:4000/menu");
 
-    // console.log("entramos al getMenu(), retorna:  ", json.data);
+    console.log("entramos al getMenu(), retorna:  ", json.data);
 
     return dispatch({
       type: actionTypes.GET_MENU,

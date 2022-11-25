@@ -32,7 +32,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
     },
     bloque: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
     },
   });
 };

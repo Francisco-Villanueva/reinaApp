@@ -23,7 +23,7 @@ const rootReducer = (state = initialState, action) => {
     case actionTypes.GET_MENU:
       return {
         ...state,
-        menuLoaded: action.payload,
+        burgersMenu: action.payload,
       };
 
     case actionTypes.GET_PEDIDOS:

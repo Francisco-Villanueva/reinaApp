@@ -1,9 +1,6 @@
 import React from "react";
 import { Testeando } from "../Testeando";
 import { useEffect } from "react";
-import { bindActionCreators } from "redux";
-import * as actionCreatos from "../../actions";
-import { connect, useSelector } from "react-redux";
 import "./Home.css";
 import PedidosSide from "./pedidos-side/PedidosSide";
 
@@ -11,19 +8,28 @@ import ClientForm from "./pedidos-side/clienteForm/ClientForm";
 import NavBar from "./NavBar";
 
 import Swal from "sweetalert2";
-export function Home(props) {
+import { useDispatch, useSelector } from "react-redux";
+import {
+  cleanBurgerList,
+  crearPedido,
+  getMenu,
+  getPedidos,
+} from "../../actions";
+export default function Home(props) {
+  const dispatch = useDispatch();
+  const datos = useSelector((s) => s.clientData);
   let burgers = useSelector((s) => s.burgerList);
   let burgersMenu = useSelector((s) => s.burgersMenu);
   const preciosPart = useSelector((s) => s.pricesList);
 
   useEffect(() => {
-    props.getMenu();
-    props.getPedidos();
+    dispatch(getMenu());
+    dispatch(getPedidos());
   }, []);
 
   const test = () => {
     // const long = props.datos.length - 1
-    const c = props.datos[props.datos.length - 1];
+    const c = datos[datos.length - 1];
 
     const precioFinal = preciosPart.reduce(
       (acumulador, valorActual) => acumulador + valorActual
@@ -37,8 +43,8 @@ export function Home(props) {
       direccion: c.direccion,
       bloque: c.bloque,
     };
-    props.crearPedido(pedidoFinal);
-    props.cleanBurgerList();
+    dispatch(crearPedido(pedidoFinal));
+    dispatch(cleanBurgerList());
     Swal.fire({
       icon: "success",
       title: `Pedido cargado! Precio: $  ${precioFinal}`,
@@ -53,7 +59,7 @@ export function Home(props) {
       <div className="body">
         <div className="main-container">
           <div className="menu-container">
-            <ClientForm loadPedido={props.crearPedido} cliente={props.datos} />
+            <ClientForm loadPedido={dispatch(crearPedido)} cliente={datos} />
 
             <button className="btn-cargarpedido" onClick={test}>
               Cargar pedido
@@ -70,14 +76,3 @@ export function Home(props) {
     </div>
   );
 }
-
-const mapStateToProps = (state) => ({
-  menu: state.menuLoaded,
-  datos: state.clientData,
-  pedido: state.burgerList,
-});
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(actionCreatos, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);

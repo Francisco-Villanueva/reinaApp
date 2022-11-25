@@ -4,13 +4,12 @@ import "./ClientForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 export default function ClientForm(props) {
- 
   const [client, setClient] = useState({
     name: "",
     direccion: "",
     pago: "",
     entrega: "",
-    bloque:0, 
+    bloque: 0,
   });
   const handleChange = (e) => {
     setClient({ ...client, [e.target.name]: e.target.value });
@@ -67,9 +66,27 @@ export default function ClientForm(props) {
         placeholder="Direccion"
         onChange={handleChange}
       />
-      
-      <input onChange={handleChange} value={client.bloque} type="number" id="quantity" name="bloque" min="1" max="7" placeholder="bloque"></input>
-      
+
+      <select
+        value={client.bloque}
+        className="clientData"
+        name="bloque"
+        onChange={handleChange}
+        placeholder="Bloque"
+        itemType="time"
+      >
+        <option value="20:30">20:30</option>
+        <option value="20:45">20:45</option>
+        <option value="21:00">21:00</option>
+        <option value="21:15">21:15</option>
+        <option value="21:30">21:30</option>
+        <option value="21:45">21:45</option>
+        <option value="22:00">22:00</option>
+        <option value="22:15">22:15</option>
+        <option value="22:30">22:30</option>
+        <option value="22:45">22:45</option>
+        <option value="23:00">23:00</option>
+      </select>
 
       <button className="btn-check" onClick={pushClientData}>
         <FontAwesomeIcon icon={faCheck} style={{ color: "#000" }} />

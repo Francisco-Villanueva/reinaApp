@@ -16,20 +16,25 @@ router.get("/menu", burgerList); //
 router.get("/pedido", getAllPedidos); //
 router.get("/pedido/:id", getPedidoById); //
 router.put("/pedido/:id", editPedido); //
-router.delete("/pedido/:id", deletePedido);//
-router.post("/pedido", crearPedido);//
+router.delete("/pedido/:id", deletePedido); //
+router.post("/pedido", crearPedido); //
 
 const {
   createBurger,
   deleteBurger,
   getAllBurgers,
   editBurger,
-  getOneBurger
+  getOneBurger,
 } = require("./burgerServices");
 
-router.get("/burger", getAllBurgers)
-router.post("/burger", createBurger)
-router.get("/burger/:id", getOneBurger)
-router.put("/burger/:id", editBurger)
-router.delete("/burger/:id", deleteBurger)
+router.get("/burger", getAllBurgers);
+router.post("/burger", createBurger);
+router.get("/burger/:id", getOneBurger);
+router.put("/burger/:id", editBurger);
+router.delete("/burger/:id", deleteBurger);
+
+const { getAllHorarios, createHorario } = require("./horariosServices");
+router.get("/horarios", getAllHorarios);
+router.post("/horarios", createHorario);
+
 module.exports = router;
