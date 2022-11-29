@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   cleanBurgerList,
   crearPedido,
+  getHorarios,
   getMenu,
   getPedidos,
 } from "../../actions";
@@ -24,7 +25,8 @@ export default function Home(props) {
 
   useEffect(() => {
     dispatch(getMenu());
-    dispatch(getPedidos());
+    // dispatch(getPedidos());
+    dispatch(getHorarios());
   }, []);
 
   const test = () => {

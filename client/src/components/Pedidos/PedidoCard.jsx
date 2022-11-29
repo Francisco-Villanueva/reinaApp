@@ -1,23 +1,32 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePedido, entregarPedido } from "../../actions";
 import "./PedidoCard.css";
 export default function PedidoCard(props) {
   // let o = 1;
-  const dispatch = useDispatch()
-  const [entrega, setEntrega] = useState(false)
-  const handleDelete=()=>{
-    dispatch(deletePedido(props.id))
-    console.log('ELIMINANDO', props.id)
-  }
-  const handleEntregado=()=>{
-    setEntrega(true)
-    console.log('ENTREGAD', props.id)
-  }
+  const dispatch = useDispatch();
+  const [entrega, setEntrega] = useState(false);
+  const handleDelete = () => {
+    dispatch(deletePedido(props.id));
+    console.log("ELIMINANDO", props.id);
+  };
+  const handleEntregado = () => {
+    setEntrega(true);
+    console.log("ENTREGAD", props.id);
+  };
+  useEffect(() => {
+    console.log("ENTRO AL PEDIDOSCARD:=>  ", props);
+  }, []);
+
   return (
     <div className="container">
-      <ol style={entrega?{textDecoration:'line-through', fontWeight:'100'}:{}}>
+      <ol
+        style={
+          entrega ? { textDecoration: "line-through", fontWeight: "100" } : {}
+        }
+      >
+        <ul>{props.bloque}</ul>
         <ul>$ {props.precio}</ul>
         <ul>{props.name}</ul>
         <ul className="burgersCont">
@@ -31,9 +40,8 @@ export default function PedidoCard(props) {
         <ul>{props.direccion}</ul>
         <ul>{props.cantidad}</ul>
         <div>
-
-        <button onClick={handleDelete}>x</button>
-        <button onClick={handleEntregado}>E</button>
+          <button onClick={handleDelete}>x</button>
+          <button onClick={handleEntregado}>E</button>
         </div>
       </ol>
     </div>

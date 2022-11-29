@@ -18,7 +18,7 @@ export function PedidosList(props) {
   }, [contador]);
 
   // console.log('LISTA DE PEDIDOS', props.pedidos)
-  props.pedidos.sort((a, b) => Date.parse(a.bloque) - Date.parse(b.bloque));
+  props.pedidos.sort((a, b) => Date(a.bloque) - Date(b.bloque));
 
   // new Date(b.date) - new Date(a.date)
   // console.log("LISTA DE PEDIDOS ordenados", props.pedidos);
@@ -29,7 +29,8 @@ export function PedidosList(props) {
       <div className="pedidosContainer">
         <div className="tabla-main">
           <ol className="tabla-head">
-            <ul>nro</ul>
+            <ul>Horario</ul>
+            <ul>Precio</ul>
             <ul>Nombre</ul>
             <ul>Burgers</ul>
             <ul>Entrega</ul>
@@ -49,6 +50,7 @@ export function PedidosList(props) {
               cantidad={p.cantidad}
               precio={p.precio}
               deleteFunc={p.deletePedido}
+              bloque={p.bloque}
             />
           ))}
         </div>

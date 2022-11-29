@@ -3,23 +3,33 @@ import { useState } from "react";
 import "./ClientForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 export default function ClientForm(props) {
+  const horas = useSelector((s) => s.horariosList);
   const [client, setClient] = useState({
     name: "",
     direccion: "",
     pago: "",
     entrega: "",
-    bloque: 0,
+    bloque: "",
   });
   const handleChange = (e) => {
     setClient({ ...client, [e.target.name]: e.target.value });
   };
 
   const pushClientData = () => {
-    if (!client.name || !client.direccion || !client.entrega || !client.pago) {
+    if (
+      !client.name ||
+      !client.direccion ||
+      !client.entrega ||
+      !client.pago ||
+      !client.bloque
+    ) {
       return alert(`Faltan Datos`);
     }
     props.cliente.push(client);
+
+    console.log("CLIENTE CARGADO:   ", client);
     alert(`Cliente: ${client.name} cargado con éxito!`);
   };
 
@@ -75,17 +85,11 @@ export default function ClientForm(props) {
         placeholder="Bloque"
         itemType="time"
       >
-        <option value="20:30">20:30</option>
-        <option value="20:45">20:45</option>
-        <option value="21:00">21:00</option>
-        <option value="21:15">21:15</option>
-        <option value="21:30">21:30</option>
-        <option value="21:45">21:45</option>
-        <option value="22:00">22:00</option>
-        <option value="22:15">22:15</option>
-        <option value="22:30">22:30</option>
-        <option value="22:45">22:45</option>
-        <option value="23:00">23:00</option>
+        {horas?.map((m) => (
+          <option key={m.id} value={m.hora}>
+            {m.hora}
+          </option>
+        ))}
       </select>
 
       <button className="btn-check" onClick={pushClientData}>

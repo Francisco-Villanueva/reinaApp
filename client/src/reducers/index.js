@@ -17,6 +17,7 @@ const initialState = {
   load: false,
   burgersMenu: [],
   burgerData: [],
+  horariosList: [],
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -67,6 +68,11 @@ const rootReducer = (state = initialState, action) => {
       state.burgersMenu.push(action.payload);
       return {
         ...state,
+      };
+    case actionTypes.GET_HORARIOS:
+      return {
+        ...state,
+        horariosList: action.payload,
       };
 
     default:

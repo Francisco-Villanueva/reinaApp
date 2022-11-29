@@ -14,6 +14,7 @@ export const actionTypes = {
   GET_BURGER_DATA: "GET_BURGER_DATA",
   EDIT_BURGER: "EDIT_BURGER",
   CREATE_BURGER: "CREATE_BURGER",
+  GET_HORARIOS: "GET_HORARIOS",
 };
 
 export function getMenu() {
@@ -163,6 +164,22 @@ export function createBurger(payload) {
       return dispatch({
         type: actionTypes.CREATE_BURGER,
         payload: create,
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+}
+
+export function getHorarios() {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(`http://localhost:4000/horarios`);
+      console.log("entramos al getHoraios(), retorna:  ", json.data);
+
+      return dispatch({
+        type: actionTypes.GET_HORARIOS,
+        payload: json.data,
       });
     } catch (error) {
       throw new Error(error);
