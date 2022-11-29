@@ -1,6 +1,6 @@
 const { Horarios } = require("../db");
+
 const getDbInfo = async () => {
-  // const info = await db.query("SELECT * FROM pedidos");
 
   const horarios = await Horarios.findAll();
   console.log("LISTA DE PEDIDOS: ", horarios);
@@ -22,7 +22,7 @@ const createHorario = async (req, res) => {
     const newHorario = await Horarios.create({
       hora: hora,
     });
-    res.status(200).send(newHorario);
+    res.status(200).json(newHorario);
   } catch (error) {
     res.status(400).send(error.message);
   }
