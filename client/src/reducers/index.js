@@ -3,7 +3,7 @@ const initialState = {
   count: 0,
   menuLoaded: [],
   pedidosLoaded: [],
-  burgerList: [],
+  burgerList: [], //se usa para hacer el listado de burgers de cada pedido
   pricesList: [],
   clientData: [],
   pedidosEntregados: [],

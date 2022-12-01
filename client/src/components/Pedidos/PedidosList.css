@@ -1,12 +1,15 @@
 .pedidosContainer {
   background-color: rgba(250, 250, 250, 0.25);
   box-shadow: 1px 1px 10px #24262e;
-  padding: 1em;
+  padding: 1em 0.25em;
   border-radius: 1rem;
-  margin: 0 5rem;
+  margin: 0 1rem;
   min-height: 100vh;
   display: flex;
   justify-content: center;
+}
+.tabla-main {
+  width: 100%;
 }
 .pedidosContainer ol {
   display: grid;

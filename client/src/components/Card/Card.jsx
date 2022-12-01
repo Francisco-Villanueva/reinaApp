@@ -9,15 +9,36 @@ import { bindActionCreators } from "redux";
 export function Card(props) {
   const burgers = useSelector((s) => s.burgerList);
   const precioPart = useSelector((s) => s.pricesList);
-  const [burga, setBurga] = useState(props.name);
-  const [precio, setPrecio] = useState(props.price);
-  const handleBurgers = () => {
-    setBurga(props.name);
-    setPrecio(props.price)
-    console.log("brugas: ", burga);
-    console.log("precio: ", precio);
-    burgers.push(burga);
-    precioPart.push(precio)
+
+  const [counterSimple, setCounterSimp] = useState(0);
+  const [counterDoble, setCounterDobl] = useState(0);
+  const [counterTriple, setCounterTrip] = useState(0);
+  const [burga, setBurga] = useState({
+    simple: props.name + " simple",
+    doble: props.name,
+    triple: props.name + " triple",
+  });
+  const [precio, setPrecio] = useState({
+    simple: props.price - 120,
+    doble: props.price,
+    triple: props.price + 200,
+  });
+  const handleBurgers = (e) => {
+    let nameAux = e.target.name;
+
+    if (nameAux == "simple") {
+      setCounterSimp((state) => state + 1);
+      burgers.push(burga.simple);
+      precioPart.push(precio.simple);
+    } else if (nameAux == "doble") {
+      setCounterDobl((state) => state + 1);
+      burgers.push(burga.doble);
+      precioPart.push(precio.doble);
+    } else {
+      setCounterTrip((state) => state + 1);
+      burgers.push(burga.triple);
+      precioPart.push(precio.triple);
+    }
     console.log("BURGERS: => ", burgers);
     console.log("PRECIOS: => ", precioPart);
   };
@@ -27,17 +48,41 @@ export function Card(props) {
         <div className="nombre">
           <h3>{props.name}</h3>
         </div>
-        <div className="description">
-          <span>{props.description}</span>
-        </div>
+
         <div className="buy">
-          <button
-            name={props.name}
-            onClick={(e) => handleBurgers(e)}
-            className="btn-add"
-          >
-            + $ {props.price}
-          </button>
+          <div className="price-btn">
+            <p>Simple</p>
+            <button
+              name="simple"
+              onClick={(e) => handleBurgers(e)}
+              className="btn-add"
+            >
+              $ {props.price - 120}
+            </button>
+            <span>{counterSimple}</span>
+          </div>
+          <div className="price-btn">
+            <p>Doble</p>
+            <button
+              name="doble"
+              onClick={(e) => handleBurgers(e)}
+              className="btn-add"
+            >
+              $ {props.price}
+            </button>
+            <span>{counterDoble}</span>
+          </div>
+          <div className="price-btn">
+            <p>Triple</p>
+            <button
+              name="triple"
+              onClick={(e) => handleBurgers(e)}
+              className="btn-add"
+            >
+              $ {props.price + 200}
+            </button>
+            <span>{counterTriple}</span>
+          </div>
         </div>
       </div>
       <div className="img-container">

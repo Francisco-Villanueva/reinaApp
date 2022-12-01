@@ -16,6 +16,8 @@ import {
   getMenu,
   getPedidos,
 } from "../../actions";
+import PanelBurgers from "./Panel de pedidos/PanelBurgers";
+import PedidosList from "../Pedidos/PedidosList";
 export default function Home(props) {
   const dispatch = useDispatch();
   const datos = useSelector((s) => s.clientData);
@@ -31,6 +33,7 @@ export default function Home(props) {
 
   const test = () => {
     // const long = props.datos.length - 1
+
     const c = datos[datos.length - 1];
 
     const precioFinal = preciosPart.reduce(
@@ -70,10 +73,12 @@ export default function Home(props) {
             <Testeando menu={burgersMenu} addBurga={props.addBurger} />
             {/* <Testeando2 menu={props.menu.blu} /> */}
           </div>
-          <div className="pedido-container">
-            <PedidosSide />
-          </div>
         </div>
+      </div>
+
+      <div className="home-pedidos">
+        {}
+        <PedidosList />
       </div>
     </div>
   );

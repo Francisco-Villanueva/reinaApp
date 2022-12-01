@@ -1,0 +1,14 @@
+.panel-container {
+  display: flex;
+  flex-direction: column;
+}
+.panel-container ul {
+  margin: 0;
+  padding: 0;
+}
+.panel-container ul li {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  list-style: none;
+}

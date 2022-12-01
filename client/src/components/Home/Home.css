@@ -8,8 +8,6 @@
 .main-container {
   background-color: rgba(250, 250, 250, 0.25);
   padding: 1rem;
-  display: grid;
-  grid-template-columns: 5fr 1fr;
   box-shadow: 1px 1px 10px #24262e;
   border-radius: 1rem;
 }
@@ -35,8 +33,14 @@
   transition: all 0.3s;
 }
 .btn-cargarpedido:hover {
+  background-color: #e2aa3d;
   color: #fff;
   box-shadow: 8px 8px 20px #24262e83;
   margin-left: -0.5rem;
   cursor: pointer;
+}
+.right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

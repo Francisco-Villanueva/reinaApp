@@ -1,31 +1,29 @@
 import React from "react";
 import "./PedidosList.css";
 
-import { connect, useSelector } from "react-redux";
-import * as actionCreators from "../../actions";
-import { bindActionCreators } from "redux";
+import { connect, useDispatch, useSelector } from "react-redux";
+
 import { useEffect } from "react";
 import PedidoCard from "./PedidoCard";
 import NavBar from "../Home/NavBar";
+import { getPedidos } from "../../actions";
 
-export function PedidosList(props) {
-  let contador = props.pedidos.length;
+export default function PedidosList(props) {
+  // let contador = props.pedidos.length;
   let entrega2 = useSelector((s) => s.pedidosEntregados);
+  const p = useSelector((s) => s.pedidosLoaded);
+  const dispatch = useDispatch();
   useEffect(() => {
-    props.getPedidos();
-    // console.log('useEfect ENTREGAS  ', contador)
-    // console.log('PEDIDOS ENTREGADOS: ', entrega2)
-  }, [contador]);
+    dispatch(getPedidos());
+  }, []);
 
   // console.log('LISTA DE PEDIDOS', props.pedidos)
-  props.pedidos.sort((a, b) => Date(a.bloque) - Date(b.bloque));
-
-  // new Date(b.date) - new Date(a.date)
-  // console.log("LISTA DE PEDIDOS ordenados", props.pedidos);
+  // props.pedidos.sort((a, b) => Date(a.bloque) - Date(b.bloque));
 
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
+      <h1>Lista de pedidos</h1>
       <div className="pedidosContainer">
         <div className="tabla-main">
           <ol className="tabla-head">
@@ -39,7 +37,7 @@ export function PedidosList(props) {
             <ul>Acciones</ul>
           </ol>
           <hr />
-          {props.pedidos.map((p) => (
+          {p?.map((p) => (
             <PedidoCard
               key={p.id}
               id={p.id}
@@ -62,8 +60,3 @@ export function PedidosList(props) {
 const mapStateToProps = (state) => ({
   pedidos: state.pedidosLoaded,
 });
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(actionCreators, dispatch);
-};
-export default connect(mapStateToProps, mapDispatchToProps)(PedidosList);

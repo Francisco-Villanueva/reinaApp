@@ -10,6 +10,9 @@ ul {
 .container:nth-child(even) {
   background-color: #dcac4c90;
 }
+.burgersCont {
+  padding: 0;
+}
 .burgersCont ol {
   display: grid;
   grid-template-columns: 1fr;
