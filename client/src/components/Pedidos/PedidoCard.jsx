@@ -13,10 +13,10 @@ export default function PedidoCard(props) {
   };
   const handleEntregado = () => {
     setEntrega(true);
-    console.log("ENTREGAD", props.id);
+    console.log("ENTREGADO", props.id);
   };
   useEffect(() => {
-    console.log("ENTRO AL PEDIDOSCARD:=>  ", props);
+    // console.log("ENTRO AL PEDIDOSCARD:=>  ", props);
   }, []);
 
   return (
