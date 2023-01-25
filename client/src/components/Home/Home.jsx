@@ -16,7 +16,7 @@ import {
   getMenu,
   getPedidos,
 } from "../../actions";
-import PanelBurgers from "./Panel de pedidos/PanelBurgers";
+// import PanelBurgers from "./Panel de pedidos/PanelBurgers";
 import PedidosList from "../Pedidos/PedidosList";
 export default function Home(props) {
   const dispatch = useDispatch();
@@ -27,8 +27,8 @@ export default function Home(props) {
 
   useEffect(() => {
     dispatch(getMenu());
-    // dispatch(getPedidos());
     dispatch(getHorarios());
+    // dispatch(getPedidos());
   }, []);
 
   const test = () => {
@@ -57,6 +57,16 @@ export default function Home(props) {
       timer: 1000,
     });
   };
+  const horarios = useSelector((s) => s.horariosList);
+
+  // cosas para cargar como props al "PedidosList"
+  let entregados = useSelector((s) => s.pedidosEntregados);
+  const pedidosCargados = useSelector((s) => s.pedidosLoaded);
+
+  useEffect(() => {
+    dispatch(getPedidos());
+    // dispatch(getMenu());
+  }, [pedidosCargados]);
   return (
     <div className="home-container">
       <NavBar />
@@ -64,7 +74,7 @@ export default function Home(props) {
       <div className="body">
         <div className="main-container">
           <div className="menu-container">
-            <ClientForm loadPedido={dispatch(crearPedido)} cliente={datos} />
+            <ClientForm loadPedido={dispatch(crearPedido)} cliente={datos} horas={horarios}/>
 
             <button className="btn-cargarpedido" onClick={test}>
               Cargar pedido
@@ -78,7 +88,7 @@ export default function Home(props) {
 
       <div className="home-pedidos">
         {}
-        <PedidosList />
+        <PedidosList entrega2={entregados} p={pedidosCargados}/>
       </div>
     </div>
   );

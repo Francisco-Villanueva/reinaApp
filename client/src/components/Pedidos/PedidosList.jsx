@@ -8,18 +8,8 @@ import PedidoCard from "./PedidoCard";
 import NavBar from "../Home/NavBar";
 import { getPedidos } from "../../actions";
 
-export default function PedidosList(props) {
-  // let contador = props.pedidos.length;
-  let entrega2 = useSelector((s) => s.pedidosEntregados);
-  const p = useSelector((s) => s.pedidosLoaded);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getPedidos());
-  }, []);
-
-  // console.log('LISTA DE PEDIDOS', props.pedidos)
-  // props.pedidos.sort((a, b) => Date(a.bloque) - Date(b.bloque));
-
+export default function PedidosList({entrega2, p}) {
+ 
   return (
     <div>
       {/* <NavBar /> */}

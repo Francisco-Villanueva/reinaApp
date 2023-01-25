@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 export default function ClientForm(props) {
-  const horas = useSelector((s) => s.horariosList);
+  // const horas = useSelector((s) => s.horariosList);
   const [client, setClient] = useState({
     name: "",
     direccion: "",
@@ -85,7 +85,7 @@ export default function ClientForm(props) {
         placeholder="Bloque"
         itemType="time"
       >
-        {horas?.map((m) => (
+        {props.horas?.map((m) => (
           <option key={m.id} value={m.hora}>
             {m.hora}
           </option>
