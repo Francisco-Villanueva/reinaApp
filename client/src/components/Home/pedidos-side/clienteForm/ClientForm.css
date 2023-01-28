@@ -1,6 +1,6 @@
 .client-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr 0.2fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr 0.2fr 0.2fr;
 }
 
 .clientData {
@@ -19,4 +19,9 @@ option {
 }
 .btn-check {
   border: unset;
+}
+.userCheck{
+  margin:  0 3px;
+  font-size: 2rem;
+  transition: all .3s;
 }

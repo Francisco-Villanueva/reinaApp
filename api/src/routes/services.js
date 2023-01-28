@@ -81,9 +81,6 @@ const getDbInfo = async () => {
 const getAllPedidos = async (req, res) => {
   try {
     const dbData = await getDbInfo();
-
-    dbData.sort((a, b) => Date.parse(a.bloque) - Date.parse(b.bloque));
-    console.log("EL TYPEOF DEL BLOQUE ES....  ", typeof dbData[0].bloque);
     res.status(200).json(dbData);
   } catch (error) {
     console.log(error);

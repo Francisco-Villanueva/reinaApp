@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Testeando } from "../Testeando";
 import { useEffect } from "react";
 import "./Home.css";
@@ -25,10 +25,12 @@ export default function Home(props) {
   let burgersMenu = useSelector((s) => s.burgersMenu);
   const preciosPart = useSelector((s) => s.pricesList);
 
+
+  const [clientCheck, setClientCheck]=useState(false)
   useEffect(() => {
     dispatch(getMenu());
     dispatch(getHorarios());
-    // dispatch(getPedidos());
+    dispatch(getPedidos());
   }, []);
 
   const test = () => {
@@ -64,7 +66,7 @@ export default function Home(props) {
   const pedidosCargados = useSelector((s) => s.pedidosLoaded);
 
   useEffect(() => {
-    dispatch(getPedidos());
+    // dispatch(getPedidos());
     // dispatch(getMenu());
   }, [pedidosCargados]);
   return (
@@ -74,7 +76,7 @@ export default function Home(props) {
       <div className="body">
         <div className="main-container">
           <div className="menu-container">
-            <ClientForm loadPedido={dispatch(crearPedido)} cliente={datos} horas={horarios}/>
+            <ClientForm loadPedido={dispatch(crearPedido)} cliente={datos} horas={horarios} clientChecks={clientCheck} setClientChecks={setClientCheck}/>
 
             <button className="btn-cargarpedido" onClick={test}>
               Cargar pedido

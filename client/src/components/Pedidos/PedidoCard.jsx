@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deletePedido, entregarPedido } from "../../actions";
 import "./PedidoCard.css";
 export default function PedidoCard(props) {
+
+  // console.log('a ver aca   ',props.id)
   // let o = 1;
   const dispatch = useDispatch();
   const [entrega, setEntrega] = useState(false);

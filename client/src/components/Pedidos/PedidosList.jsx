@@ -9,7 +9,8 @@ import NavBar from "../Home/NavBar";
 import { getPedidos } from "../../actions";
 
 export default function PedidosList({entrega2, p}) {
- 
+  let idPrueba= 156;
+  // console.log('LAS P PROPS:  ', p)
   return (
     <div>
       {/* <NavBar /> */}
@@ -27,9 +28,9 @@ export default function PedidosList({entrega2, p}) {
             <ul>Acciones</ul>
           </ol>
           <hr />
-          {p?.map((p) => (
+          {p.length?p.map((p) => (
             <PedidoCard
-              key={p.id}
+              key={p.id }
               id={p.id}
               name={p.nombre}
               burgers={p.burgers}
@@ -40,7 +41,7 @@ export default function PedidosList({entrega2, p}) {
               deleteFunc={p.deletePedido}
               bloque={p.bloque}
             />
-          ))}
+          )):'no hay pedidos'}
         </div>
       </div>
     </div>
