@@ -24,11 +24,7 @@ export default function Home(props) {
   const [counterDoble, setCounterDobl] = useState(0);
   const [counterTriple, setCounterTrip] = useState(0);
 
-  const [counter, setCoutner] = useState({
-    countSimples: 0,
-    countDobles: 0,
-    countTriples: 0,
-  });
+ 
   // ---------------------------------------------------------------------------------
 
   const dispatch = useDispatch();
@@ -47,32 +43,48 @@ export default function Home(props) {
 
   const test = () => {
     console.log("datos:  ", datos);
-    const c = datos[datos.length - 1];
+    if(preciosPart.length === 0){
+      Swal.fire({
+        icon: "success",
+        title: `Falta cargar las burgers`,
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    }else{
 
+    }
     const precioFinal = preciosPart.reduce(
       (acumulador, valorActual) => acumulador + valorActual
-    );
-    const pedidoFinal = {
-      precio: precioFinal,
-      nombre: c.name,
-      entrega: c.entrega,
-      burgers: burgers,
-      pago: c.pago,
-      direccion: c.direccion,
-      bloque: c.bloque,
-    };
-
-    dispatch(crearPedido(pedidoFinal));
-    dispatch(cleanBurgerList());
-    setClientCheck(false);
-    //------------------------ ALERTA SWAL DE PEDIDO CARGADO ------------------------
-    Swal.fire({
-      icon: "success",
-      title: `Pedido cargado! Precio: $  ${precioFinal}`,
-      showConfirmButton: false,
-      timer: 1000,
-    });
-    // ------------------------------------------------------------------------------------------------
+      );
+    const c = datos[datos.length - 1];
+    if(datos.length === 0){
+      alert('Faltan datos del cliente')
+    }else {
+      const pedidoFinal = {
+        precio: precioFinal,
+        nombre: c.name,
+        entrega: c.entrega,
+        burgers: burgers,
+        pago: c.pago,
+        direccion: c.direccion,
+        bloque: c.bloque,
+      };
+  
+      
+      dispatch(crearPedido(pedidoFinal));
+      dispatch(cleanBurgerList());
+      setClientCheck(false);
+      //------------------------ ALERTA SWAL DE PEDIDO CARGADO -------
+      Swal.fire({
+        icon: "success",
+        title: `Pedido cargado! Precio: $  ${precioFinal}`,
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      // -------------------------------------------------------------
+    }
+    
+    
   };
 
   const horarios = useSelector((s) => s.horariosList);
@@ -84,7 +96,7 @@ export default function Home(props) {
   useEffect(() => {
     dispatch(getPedidos());
     // dispatch(getMenu());
-  }, []);
+  }, [pedidosCargados]);
   return (
     <div className="home-container">
       <NavBar />
@@ -107,8 +119,6 @@ export default function Home(props) {
             <Testeando
               menu={burgersMenu}
               addBurga={props.addBurger}
-              contador={counter}
-              setContador={setCoutner}
             />
             {/* <Testeando2 menu={props.menu.blu} /> */}
           </div>

@@ -21,20 +21,25 @@ export function Card(props) {
     doble: props.price,
     triple: props.price + 200,
   });
+
+  const [counterSimple, setCounterSimp] = useState(0);
+  const [counterDoble, setCounterDobl] = useState(0);
+  const [counterTriple, setCounterTrip] = useState(0);
+
+
   const handleBurgers = (e) => {
     let nameAux = e.target.name;
 
     if (nameAux == "simple") {
-      props.setContador((state) => state.countSimples + 1);
+      setCounterSimp((state) => state + 1);
       burgers.push(burga.simple);
       precioPart.push(precio.simple);
     } else if (nameAux == "doble") {
-      props.setContador((state) => state.countDobles + 1);
+      setCounterDobl((state) =>state+ 1);
       burgers.push(burga.doble);
       precioPart.push(precio.doble);
     } else {
-      props.setContador((state) => state.countTriples + 1);
-      // setCounterTrip((state) => state + 1);
+      setCounterTrip((state) => state + 1);
       burgers.push(burga.triple);
       precioPart.push(precio.triple);
     }
@@ -58,7 +63,7 @@ export function Card(props) {
             >
               $ {props.price - 120}
             </button>
-            <span>{1}</span>
+            <span>{counterSimple}</span>
           </div>
           <div className="price-btn">
             <p>Doble</p>
@@ -69,7 +74,7 @@ export function Card(props) {
             >
               $ {props.price}
             </button>
-            <span>{props.contador.countDobles}</span>
+            <span>{counterDoble}</span>
           </div>
           <div className="price-btn">
             <p>Triple</p>
@@ -80,7 +85,7 @@ export function Card(props) {
             >
               $ {props.price + 200}
             </button>
-            <span>{props.contador.countTriples}</span>
+            <span>{counterTriple}</span>
           </div>
         </div>
       </div>

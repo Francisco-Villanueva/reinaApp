@@ -14,8 +14,6 @@ export function Testeando(props) {
             price={burg.price}
             description={burg.description}
             addBurga={props.addBurga}
-            contador={props.contador}
-            setContador={props.setContador}
           />
         ))}
       </div>
