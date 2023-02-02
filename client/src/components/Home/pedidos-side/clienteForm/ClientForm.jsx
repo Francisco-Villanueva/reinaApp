@@ -2,11 +2,16 @@ import React from "react";
 import { useState } from "react";
 import "./ClientForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faUserCheck, faUserLargeSlash, faUserLarge } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheck,
+  faUserCheck,
+  faUserLargeSlash,
+  faUserLarge,
+} from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 export default function ClientForm(props) {
   // const horas = useSelector((s) => s.horariosList);
-  
+
   const [client, setClient] = useState({
     name: "",
     direccion: "",
@@ -28,9 +33,9 @@ export default function ClientForm(props) {
     ) {
       return alert(`Faltan Datos`);
     }
-    props.setClientChecks(true)
+    props.setClientChecks(true);
     props.cliente.push(client);
-
+    setClient({ name: "", direccion: "", pago: "", entrega: "", bloque: "" });
     console.log("CLIENTE CARGADO:   ", client);
     // alert(`Cliente: ${client.name} cargado con éxito!`);
   };
@@ -98,9 +103,11 @@ export default function ClientForm(props) {
         <FontAwesomeIcon icon={faCheck} style={{ color: "#000" }} />
       </button>
       <div className="userCheck">
-            {!props.clientChecks?
-            <FontAwesomeIcon  icon={faUserLargeSlash} style={{ color: "red" }} />
-            :<FontAwesomeIcon  icon={faUserLarge} style={{ color: "green" }} />}
+        {!props.clientChecks ? (
+          <FontAwesomeIcon icon={faUserLargeSlash} style={{ color: "red" }} />
+        ) : (
+          <FontAwesomeIcon icon={faUserLarge} style={{ color: "green" }} />
+        )}
       </div>
     </div>
   );

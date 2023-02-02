@@ -19,14 +19,26 @@ import {
 // import PanelBurgers from "./Panel de pedidos/PanelBurgers";
 import PedidosList from "../Pedidos/PedidosList";
 export default function Home(props) {
+  //  --- ESTADOS PARA MANEJAR LAS CANTIDADES PEDIDAS DE CADA BURGER ---------
+  const [counterSimple, setCounterSimp] = useState(0);
+  const [counterDoble, setCounterDobl] = useState(0);
+  const [counterTriple, setCounterTrip] = useState(0);
+
+  const [counter, setCoutner] = useState({
+    countSimples: 0,
+    countDobles: 0,
+    countTriples: 0,
+  });
+  // ---------------------------------------------------------------------------------
+
   const dispatch = useDispatch();
   const datos = useSelector((s) => s.clientData);
   let burgers = useSelector((s) => s.burgerList);
   let burgersMenu = useSelector((s) => s.burgersMenu);
   const preciosPart = useSelector((s) => s.pricesList);
 
+  const [clientCheck, setClientCheck] = useState(false);
 
-  const [clientCheck, setClientCheck]=useState(false)
   useEffect(() => {
     dispatch(getMenu());
     dispatch(getHorarios());
@@ -34,8 +46,7 @@ export default function Home(props) {
   }, []);
 
   const test = () => {
-    // const long = props.datos.length - 1
-
+    console.log("datos:  ", datos);
     const c = datos[datos.length - 1];
 
     const precioFinal = preciosPart.reduce(
@@ -50,15 +61,20 @@ export default function Home(props) {
       direccion: c.direccion,
       bloque: c.bloque,
     };
+
     dispatch(crearPedido(pedidoFinal));
     dispatch(cleanBurgerList());
+    setClientCheck(false);
+    //------------------------ ALERTA SWAL DE PEDIDO CARGADO ------------------------
     Swal.fire({
       icon: "success",
       title: `Pedido cargado! Precio: $  ${precioFinal}`,
       showConfirmButton: false,
       timer: 1000,
     });
+    // ------------------------------------------------------------------------------------------------
   };
+
   const horarios = useSelector((s) => s.horariosList);
 
   // cosas para cargar como props al "PedidosList"
@@ -66,9 +82,9 @@ export default function Home(props) {
   const pedidosCargados = useSelector((s) => s.pedidosLoaded);
 
   useEffect(() => {
-    // dispatch(getPedidos());
+    dispatch(getPedidos());
     // dispatch(getMenu());
-  }, [pedidosCargados]);
+  }, []);
   return (
     <div className="home-container">
       <NavBar />
@@ -76,13 +92,24 @@ export default function Home(props) {
       <div className="body">
         <div className="main-container">
           <div className="menu-container">
-            <ClientForm loadPedido={dispatch(crearPedido)} cliente={datos} horas={horarios} clientChecks={clientCheck} setClientChecks={setClientCheck}/>
+            <ClientForm
+              loadPedido={dispatch(crearPedido)}
+              cliente={datos}
+              horas={horarios}
+              clientChecks={clientCheck}
+              setClientChecks={setClientCheck}
+            />
 
             <button className="btn-cargarpedido" onClick={test}>
               Cargar pedido
             </button>
 
-            <Testeando menu={burgersMenu} addBurga={props.addBurger} />
+            <Testeando
+              menu={burgersMenu}
+              addBurga={props.addBurger}
+              contador={counter}
+              setContador={setCoutner}
+            />
             {/* <Testeando2 menu={props.menu.blu} /> */}
           </div>
         </div>
@@ -90,7 +117,7 @@ export default function Home(props) {
 
       <div className="home-pedidos">
         {}
-        <PedidosList entrega2={entregados} p={pedidosCargados}/>
+        <PedidosList entrega2={entregados} p={pedidosCargados} />
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { deletePedido, entregarPedido } from "../../actions";
 import "./PedidoCard.css";
 export default function PedidoCard(props) {
-
   // console.log('a ver aca   ',props.id)
   // let o = 1;
   const dispatch = useDispatch();
@@ -23,11 +22,7 @@ export default function PedidoCard(props) {
 
   return (
     <div className="container">
-      <ol
-        style={
-          entrega ? { textDecoration: "line-through", fontWeight: "100" } : {}
-        }
-      >
+      <ol style={entrega ? { backgroundColor: "red", fontWeight: "100" } : {}}>
         <ul>{props.bloque}</ul>
         <ul>$ {props.precio}</ul>
         <ul>{props.name}</ul>

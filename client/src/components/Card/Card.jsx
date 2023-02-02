@@ -7,12 +7,10 @@ import * as actionCreators from "../../actions";
 import { bindActionCreators } from "redux";
 
 export function Card(props) {
+  console.log("CARD :  ", props.contador);
   const burgers = useSelector((s) => s.burgerList);
   const precioPart = useSelector((s) => s.pricesList);
 
-  const [counterSimple, setCounterSimp] = useState(0);
-  const [counterDoble, setCounterDobl] = useState(0);
-  const [counterTriple, setCounterTrip] = useState(0);
   const [burga, setBurga] = useState({
     simple: props.name + " simple",
     doble: props.name,
@@ -27,15 +25,16 @@ export function Card(props) {
     let nameAux = e.target.name;
 
     if (nameAux == "simple") {
-      setCounterSimp((state) => state + 1);
+      props.setContador((state) => state.countSimples + 1);
       burgers.push(burga.simple);
       precioPart.push(precio.simple);
     } else if (nameAux == "doble") {
-      setCounterDobl((state) => state + 1);
+      props.setContador((state) => state.countDobles + 1);
       burgers.push(burga.doble);
       precioPart.push(precio.doble);
     } else {
-      setCounterTrip((state) => state + 1);
+      props.setContador((state) => state.countTriples + 1);
+      // setCounterTrip((state) => state + 1);
       burgers.push(burga.triple);
       precioPart.push(precio.triple);
     }
@@ -59,7 +58,7 @@ export function Card(props) {
             >
               $ {props.price - 120}
             </button>
-            <span>{counterSimple}</span>
+            <span>{1}</span>
           </div>
           <div className="price-btn">
             <p>Doble</p>
@@ -70,7 +69,7 @@ export function Card(props) {
             >
               $ {props.price}
             </button>
-            <span>{counterDoble}</span>
+            <span>{props.contador.countDobles}</span>
           </div>
           <div className="price-btn">
             <p>Triple</p>
@@ -81,7 +80,7 @@ export function Card(props) {
             >
               $ {props.price + 200}
             </button>
-            <span>{counterTriple}</span>
+            <span>{props.contador.countTriples}</span>
           </div>
         </div>
       </div>
