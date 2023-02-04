@@ -19,13 +19,6 @@ import {
 // import PanelBurgers from "./Panel de pedidos/PanelBurgers";
 import PedidosList from "../Pedidos/PedidosList";
 export default function Home(props) {
-  //  --- ESTADOS PARA MANEJAR LAS CANTIDADES PEDIDAS DE CADA BURGER ---------
-  const [counterSimple, setCounterSimp] = useState(0);
-  const [counterDoble, setCounterDobl] = useState(0);
-  const [counterTriple, setCounterTrip] = useState(0);
-
- 
-  // ---------------------------------------------------------------------------------
 
   const dispatch = useDispatch();
   const datos = useSelector((s) => s.clientData);
@@ -89,14 +82,9 @@ export default function Home(props) {
 
   const horarios = useSelector((s) => s.horariosList);
 
-  // cosas para cargar como props al "PedidosList"
-  let entregados = useSelector((s) => s.pedidosEntregados);
-  const pedidosCargados = useSelector((s) => s.pedidosLoaded);
 
-  useEffect(() => {
-    dispatch(getPedidos());
-    // dispatch(getMenu());
-  }, [pedidosCargados]);
+
+ 
   return (
     <div className="home-container">
       <NavBar />
@@ -127,7 +115,7 @@ export default function Home(props) {
 
       <div className="home-pedidos">
         {}
-        <PedidosList entrega2={entregados} p={pedidosCargados} />
+        <PedidosList entrega2={props.entrega2} p={props.p} />
       </div>
     </div>
   );

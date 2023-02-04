@@ -8,14 +8,25 @@ import Landing from "./components/LandingPage/Landing";
 import Menu from "./components/Menu/Menu";
 import EditForm from "./components/Menu/FormEdit/EditForm";
 import CreateForm from "./components/Menu/FormEdit/CreateForm";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getPedidos } from "./actions";
 
 function App() {
+   // cosas para cargar como props al "PedidosList"
+   let entregados = useSelector((s) => s.pedidosEntregados);
+   const pedidosCargados = useSelector((s) => s.pedidosLoaded);
+   const dispatch = useDispatch()
+   useEffect(() => {
+    dispatch(getPedidos());
+    // dispatch(getMenu());
+  }, [pedidosCargados]);
   return (
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Landing />} />
-        <Route exact path="/home" element={<Home />} />
-        <Route exact path="/pedidos" element={<PedidosList />} />
+        <Route exact path="/home" element={<Home entrega2={entregados} p={pedidosCargados}  />} />
+        <Route exact path="/pedidos" element={<PedidosList entrega2={entregados} p={pedidosCargados} />} />
         <Route exact path="/pedidosBloque " element={<PedidosPorBloque />} />
         <Route exact path="/nuevoPedido" element={<AddPedido />} />
         <Route exact path="/menu" element={<Menu />} />

@@ -17,9 +17,9 @@ export function Card(props) {
     triple: props.name + " triple",
   });
   const [precio, setPrecio] = useState({
-    simple: props.price - 120,
+    simple: props.price - 100,
     doble: props.price,
-    triple: props.price + 200,
+    triple: props.price + 250,
   });
 
   const [counterSimple, setCounterSimp] = useState(0);
@@ -61,7 +61,7 @@ export function Card(props) {
               onClick={(e) => handleBurgers(e)}
               className="btn-add"
             >
-              $ {props.price - 120}
+              $ {props.price - 100}
             </button>
             <span>{counterSimple}</span>
           </div>
@@ -83,7 +83,7 @@ export function Card(props) {
               onClick={(e) => handleBurgers(e)}
               className="btn-add"
             >
-              $ {props.price + 200}
+              $ {props.price + 250}
             </button>
             <span>{counterTriple}</span>
           </div>
