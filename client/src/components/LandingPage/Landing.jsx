@@ -8,13 +8,13 @@ import { faHeadset, faBurger, faGear } from "@fortawesome/free-solid-svg-icons";
 export default function Landing() {
   return (
     <div className="landing-mainContainer">
-      <div className="img-container-landing">
-        <img src={logo} />
+      <div className="img-container-landing scale-in-hor-left">
+        <img className="puff-in-hor" src={logo} />
       </div>
 
-      <div className="cards-Container">
+      <div className="cards-Container swing-in-top-fwd ">
         <Link className="link-style" to={"/home"}>
-          <div className="cardLanding">
+          <div className="cardLanding ">
             <FontAwesomeIcon className="icon-cardLanding" icon={faHeadset} />
             <p>ATENCION AL CLIENTE</p>
             <span> Tomar pedidos </span>

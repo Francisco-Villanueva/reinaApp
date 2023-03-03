@@ -102,6 +102,7 @@ const deleteBurger = async (req, res) => {
       return res.status(200).send("Burger deleted!");
     }
   } catch (error) {
+    console.log("ERROR:  ", error);
     res.status(400).send(error);
   }
 };

@@ -15,6 +15,7 @@ export const actionTypes = {
   EDIT_BURGER: "EDIT_BURGER",
   CREATE_BURGER: "CREATE_BURGER",
   GET_HORARIOS: "GET_HORARIOS",
+  DELETE_BURGER: "DELETE_BURGER",
 };
 
 export function getMenu() {
@@ -98,9 +99,20 @@ export function deletePedido(id) {
         type: actionTypes.DELETE_PEDIDO,
         payload: id,
       };
-    } catch (error) {
-      throw new Error(error);
-    }
+    } catch (error) {}
+  };
+}
+export function deleteBurger(id) {
+  return async function () {
+    try {
+      await axios.delete(`http://localhost:4000/burger/${id}`);
+
+      console.log("ENTRO AL DELETEBUIRGER()");
+      return {
+        type: actionTypes.DELETE_BURGER,
+        payload: id,
+      };
+    } catch (error) {}
   };
 }
 

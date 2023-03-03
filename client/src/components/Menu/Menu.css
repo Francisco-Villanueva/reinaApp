@@ -1,12 +1,27 @@
-h2{
-    margin: 0;
+h2 {
+  margin: 0;
 }
-.card-container{
-    margin: 1rem;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(3,1fr);
-    gap: 1rem;
-    padding: 2rem;
-    min-height: 100vh;
+.card-container {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+  min-height: 100vh;
+  place-items: center;
+}
+.btn-addBurger {
+  background-color: antiquewhite;
+  border-radius: 1em;
+  border: none;
+  padding: 0.5em 1em;
+  font-family: "Montserrat";
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-addBurger:hover {
+  background-color: #ffd685;
+  padding: 0.5em 1.2em;
 }

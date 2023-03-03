@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { createBurger } from "../../../actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { createBurger, editBurger } from "../../../actions";
 import BackBtn from "../../Btn-backNavigate/BackBtn";
+import { getBurgerInfo } from "../../../actions";
 
-export default function CreateForms() {
+export default function CreateForms({ editing }) {
+  // console.log(editing);
+  const { id } = useParams();
   const dispatch = useDispatch();
+  const b = useSelector((s) => s.burgerData);
+
+  // console.log("AAAA  : ", b);
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
@@ -17,7 +23,7 @@ export default function CreateForms() {
     setData({ ...data, [e.target.name]: e.target.value });
   };
   const handleEdit = () => {
-    dispatch(createBurger(data));
+    editing ? dispatch(editBurger(id, data)) : dispatch(createBurger(data));
     navigate("/menu");
   };
   return (

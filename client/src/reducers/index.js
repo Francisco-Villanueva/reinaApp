@@ -47,6 +47,13 @@ const rootReducer = (state = initialState, action) => {
           (m) => m.id != action.payload
         ),
       };
+    case actionTypes.DELETE_BURGER:
+      return {
+        ...state,
+        pedidosLoaded: initialState.burgersMenu.filter(
+          (m) => m.id != action.payload
+        ),
+      };
 
     case actionTypes.ENTREGAR_PEDIDO:
       return {
