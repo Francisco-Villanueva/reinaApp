@@ -1,7 +1,7 @@
 .card-main {
   background-color: #f5a300;
   color: #000;
-  padding: 0.5em 1.2rem;
+  padding: 0.9em 1.2rem;
   border-radius: 1rem;
   box-shadow: 1px 2px 10px #000;
   transition: background 0.3s;
@@ -36,6 +36,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 0.2em 0.3em;
   gap: 1em;
   border: 1px #00000056 solid;
   box-shadow: 1px 1px 10px #00000069;
@@ -49,6 +50,7 @@
   font-size: 1em;
   color: #000;
   transition: color 0.3s;
+  cursor: pointer;
 }
 .btn-edit:hover,
 .btn-delete:hover {
@@ -62,10 +64,10 @@
     1s both;
   animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
 }
-.scale-in-ver-center {
+.scale-in-ver-centerBB {
   -webkit-animation: scale-in-ver-center 0.5s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
-  animation: scale-in-ver-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+  animation: scale-in-ver-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s
     both;
 }
 
@@ -80,7 +82,37 @@
   animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 0.8s
     both;
 }
+.scale-out-vertical {
+  -webkit-animation: scale-out-vertical 0.5s
+    cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: scale-out-vertical 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
 /* EFECTOS */
+
+@-webkit-keyframes scale-out-vertical {
+  0% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    opacity: 1;
+  }
+}
+@keyframes scale-out-vertical {
+  0% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    opacity: 1;
+  }
+}
 
 @-webkit-keyframes tracking-in-expand {
   0% {
