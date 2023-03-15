@@ -1,0 +1,38 @@
+.top-header {
+  display: grid;
+  justify-content: center;
+  place-items: center;
+  background: linear-gradient(
+      0deg,
+      #f09c16 1%,
+      rgba(67, 67, 67, 0.765094) 30%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(../../images/fondoBurger.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+  /* border: 1px solid #000; */
+}
+.logo-container {
+  backdrop-filter: blur(1px) !important;
+  width: 20vw;
+  text-shadow: 1px 1px 10px #000;
+  margin-top: 1.5rem;
+}
+.logo-container h2 {
+  color: #f09c16;
+  /* color: #ac1917; */
+  font-weight: 900;
+}
+.logo-container span {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  font-weight: 200;
+  font-style: italic;
+}
+.logo-container img {
+  width: 30%;
+  border-radius: 50rem;
+  box-shadow: 1px 1px 50px #000;
+}

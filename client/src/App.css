@@ -1,8 +1,8 @@
 .App {
   text-align: center;
-  font-family: "Roboto Condensed";
-  background-color: #3b3c4b;
-  /* background-image: url("./images/fondoImg.jpg"); */
+  font-family: "Montserrat";
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  background-color: #272323;
+  min-height: 100vh;
 }
